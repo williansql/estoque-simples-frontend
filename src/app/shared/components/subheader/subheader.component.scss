@@ -4,9 +4,16 @@ div.container{
 
 span.title{
     font-weight: 500;
-    font-size: 24px;
+    font-size: 32px;
+    color: var(--blue1);
+}
+
+hr{
+    opacity: 0.6;
 }
 
 span.subtitle{
-
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--gray1);
 }
