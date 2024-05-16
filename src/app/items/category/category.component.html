@@ -1,34 +1,35 @@
 <main>
     <!-- Botão para adicionar categoria -->
     <section class="head-buttom">
-        <button>
+        <div class="button">
             <i class="material-icons">add</i>
-            <h3>categoria</h3>
-        </button>
+            <span>categorias</span>
+        </div>
     </section>
 
     <!-- Filtros -->
-    <section>
-        <input type="text" placeholder="Buscar categoria">
+    <section class="filter">
+        <input type="text" placeholder="Buscar categoria" />
     </section>
 
     <!-- Lista de categorias -->
-    <section>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Categoria pai</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Categoria AA</td>
-                    <td>Categoria A</td>
-                    <td>ALGUMA</td>
-                </tr>
-            </tbody>
-        </table>
+    <section class="list-category">
+        <ul>
+            <li>
+                <span class="title">Nome</span>
+                <span class="data">Categoria AA </span>
+            </li>
+            <li>
+                <span class="title">Categoria pai</span>
+                <span class="data">Categoria A</span>
+            </li>
+            <li>
+                <span class="title">Ações</span>
+                <div>
+                    <i class="material-icons">edit</i>
+                    <i class="material-icons">delete</i>
+                </div>
+            </li>
+        </ul>
     </section>
 </main>
