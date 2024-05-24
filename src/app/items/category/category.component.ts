@@ -5,6 +5,7 @@ import { ICategory } from './icategory';
 import { IPagination } from '../../shared/models/ipagination';
 import { CategoryService } from './category.service';
 import { map } from 'rxjs';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
     selector: 'app-category',
@@ -16,8 +17,6 @@ import { map } from 'rxjs';
 export class CategoryComponent {
     listCategory: ICategory[] = [];
 
-    categoryData: any;
-
     pagination: IPagination = {
         page: 0,
         size: 10,
@@ -28,23 +27,41 @@ export class CategoryComponent {
     };
 
     data = {
-        page: 0,
         size: 5,
         name: '',
     };
 
+    displayedColumns: string[] = ['nome'];
+
     constructor(private categoryService: CategoryService) {}
 
     ngOnInit() {
-        this.getAllCategories();
+        this.getAllCategories(this.data);
+
     }
 
-    getAllCategories() {
-        this.categoryService
-            .getAllCategories()
-            .subscribe((data)=> {
-                console.log(data);
+    handlePageEvent(e: PageEvent) {
+		this.pagination.size = e.pageSize
+		this.pagination.page = e.pageIndex
+		this.pagination.numberOfElements = e.length
+		this.getAllCategories(this.pagination)
+	}
 
+    getAllCategories(params: any) {
+        this.categoryService
+            .getAllCategories(params)
+            .pipe(
+                map ((req: any) => {
+                    return req.data
+                })
+            ).subscribe({
+                next: ((req: any) => {
+                    this.listCategory = req.content
+                    this.pagination = req.pagination
+                    console.log(this.listCategory);
+                    console.log(this.pagination);
+
+                })
             })
     }
 }

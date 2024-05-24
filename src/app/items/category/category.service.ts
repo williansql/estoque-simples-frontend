@@ -15,12 +15,14 @@ export class CategoryService {
     private http: HttpClient
   ) { }
 
-  createCategory(): Observable<ICategory>{
-    return this.http.post<any>(apiCategory);
+  createCategory(data: any): Observable<ICategory>{
+    return this.http.post<ICategory>(apiCategory, data)
   }
 
-  getAllCategories(data?: any): Observable<any>{
-    return this.http.get<>(apiCategory)
+  getAllCategories(data: any): Observable<any>{
+    return this.http.get<any>(apiCategory, {
+      ...data
+    })
   }
 
 

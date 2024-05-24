@@ -14,22 +14,21 @@
 
     <!-- Lista de categorias -->
     <section class="list-category">
-        <ul>
-            <li>
-                <span class="title">Nome</span>
-                <span class="data">Categoria AA </span>
-            </li>
-            <li>
-                <span class="title">Categoria pai</span>
-                <span class="data">Categoria A</span>
-            </li>
-            <li>
-                <span class="title">Ações</span>
-                <div>
-                    <i class="material-icons">edit</i>
-                    <i class="material-icons">delete</i>
-                </div>
-            </li>
-        </ul>
+        <table>
+            <tr class="category-name">
+                <th class="name">Nome</th>
+                <th class="subordination">Subordinação</th>
+                <th class="actions">Ações</th>
+            </tr>
+            <div
+                class="body"
+                *ngFor="let category of listCategory">
+                <tr>
+                    <td class="name">{{ category.name }}</td>
+                    <td class="subordination">Subordinação</td>
+                    <td class="actions">Ações</td>
+                </tr>
+            </div>
+        </table>
     </section>
 </main>

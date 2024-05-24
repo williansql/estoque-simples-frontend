@@ -40,22 +40,37 @@ section.list-category{
     width: -webkit-fill-available;
 }
 
-ul{
+table{
+    width: 100%;
+}
+
+tr{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    li{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        span.title{
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
-        span.data{
-            font-size: 14px;
-            font-weight: 400;
-        }
-    }
 }
+
+th{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.name{
+    flex: 3;
+}
+.subordination{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+.actions{
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+
+// .name{
+//     flex: 1;
+// }
+
