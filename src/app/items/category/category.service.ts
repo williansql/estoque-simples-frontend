@@ -4,7 +4,7 @@ import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { ICategory } from './icategory';
 
-const apiCategory = environment.baseApi + '/category'
+const apiCategory = `${environment.baseApi}/category`
 
 @Injectable({
   providedIn: 'root'

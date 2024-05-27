@@ -1,7 +1,7 @@
 div.container{
-    bottom: 0;
     position: fixed;
-    width: 100%;
+    bottom: 0;
+    width: calc(100vw - 200px);
     height: 50px;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@ div.container{
   }
 
   span.title-header{
-    font-size: 26px;
+    font-size: 18px;
     color: var(--blue1);
     font-weight: 700;
   }

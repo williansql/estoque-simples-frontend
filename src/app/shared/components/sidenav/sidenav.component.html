@@ -5,7 +5,7 @@
         fixedInViewport="true"
         opened="true"
         disableClose="true"
-        style="width: 250px; background-color: var(--blue1);">
+        style="width: 200px; background-color: var(--blue1);">
 
         <div class="logo">
             <img class="logo" src="../../../../assets/logo/logo.svg" alt="Logo estoque simples">
@@ -35,9 +35,11 @@
     </mat-sidenav>
     <!-- Body -->
     <mat-sidenav-content style="background-color: var(--bg);">
-        <div style="margin: 20px 30px 30px 30px;">
+        <app-header></app-header>
+        <div style="margin: 20px 30px 80px 30px;">
             <app-subheader></app-subheader>
             <router-outlet></router-outlet>
         </div>
+        <app-footer></app-footer>
     </mat-sidenav-content>
 </mat-sidenav-container>

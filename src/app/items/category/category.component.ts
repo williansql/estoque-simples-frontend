@@ -16,7 +16,6 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class CategoryComponent {
     listCategory: ICategory[] = [];
-
     pagination: IPagination = {
         page: 0,
         size: 10,
@@ -27,17 +26,14 @@ export class CategoryComponent {
     };
 
     data = {
-        size: 5,
-        name: '',
+        page: 0,
+        size: 5
     };
-
-    displayedColumns: string[] = ['nome'];
 
     constructor(private categoryService: CategoryService) {}
 
     ngOnInit() {
         this.getAllCategories(this.data);
-
     }
 
     handlePageEvent(e: PageEvent) {

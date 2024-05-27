@@ -5,11 +5,9 @@
             <i class="material-icons">add</i>
             <span>categorias</span>
         </div>
-    </section>
-
-    <!-- Filtros -->
-    <section class="filter">
-        <input type="text" placeholder="Buscar categoria" />
+        <div class="filter">
+            <input type="text" placeholder="Buscar categoria" />
+        </div>
     </section>
 
     <!-- Lista de categorias -->
@@ -18,16 +16,39 @@
             <tr class="category-name">
                 <th class="name">Nome</th>
                 <th class="subordination">Subordinação</th>
-                <th class="actions">Ações</th>
+                <th
+                    style="display: flex; justify-content: center"
+                    class="actions"
+                >
+                    Ações
+                </th>
             </tr>
-            <div
-                class="body"
-                *ngFor="let category of listCategory">
-                <tr>
+            <hr />
+            <div class="body" *ngFor="let category of listCategory">
+                <!-- @for (category of listCategory; track $index) { -->
+                <tr class="data-list">
                     <td class="name">{{ category.name }}</td>
                     <td class="subordination">Subordinação</td>
-                    <td class="actions">Ações</td>
+                    <td class="actions">
+                        <i style="color: green" class="material-icons">edit</i>
+                        <i style="color: #d32f2f" class="material-icons"
+                            >delete</i
+                        >
+                    </td>
                 </tr>
+                <mat-divider></mat-divider>
+                <!-- } -->
+            </div>
+            <div class="footerTable" style="margin-top: 50px">
+                <mat-paginator
+                    (page)="handlePageEvent($event)"
+                    [length]="pagination.totalNumberOfElements"
+                    [pageSize]="pagination.size"
+                    [pageSizeOptions]="[5, 15, 30]"
+                    aria-label="Select page"
+                    showFirstLastButtons
+                >
+                </mat-paginator>
             </div>
         </table>
     </section>
