@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { ICategory } from './icategory';
+
+import { environment } from '../../../environments/environment';
 
 const apiCategory = `${environment.baseApi}/category`
 
@@ -15,13 +15,17 @@ export class CategoryService {
     private http: HttpClient
   ) { }
 
-  createCategory(data: any): Observable<ICategory>{
-    return this.http.post<ICategory>(apiCategory, data)
+  createCategory(data: any): Observable<any>{
+    return this.http.post<any>(apiCategory, {
+        ...data
+    })
   }
 
-  getAllCategories(data: any): Observable<any>{
-    return this.http.get<any>(apiCategory, {
-      ...data
+  getAllCategories(data: any): Observable<any[]>{
+    return this.http.get<any[]>(apiCategory, {
+        params: {
+            ...data
+        }
     })
   }
 

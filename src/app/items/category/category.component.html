@@ -1,7 +1,10 @@
+<app-subheader
+    [subheader]="{ title: title, subtitle: subtitle }"
+></app-subheader>
 <main>
     <!-- Botão para adicionar categoria -->
     <section class="head-buttom">
-        <div class="button">
+        <div routerLink="create" class="button">
             <i class="material-icons">add</i>
             <span>categorias</span>
         </div>
@@ -24,8 +27,8 @@
                 </th>
             </tr>
             <hr />
-            <div class="body" *ngFor="let category of listCategory">
-                <!-- @for (category of listCategory; track $index) { -->
+            <div class="body">
+                @for (category of listCategory; track category) {
                 <tr class="data-list">
                     <td class="name">{{ category.name }}</td>
                     <td class="subordination">Subordinação</td>
@@ -37,19 +40,18 @@
                     </td>
                 </tr>
                 <mat-divider></mat-divider>
-                <!-- } -->
+                }
             </div>
-            <div class="footerTable" style="margin-top: 50px">
-                <mat-paginator
-                    (page)="handlePageEvent($event)"
-                    [length]="pagination.totalNumberOfElements"
-                    [pageSize]="pagination.size"
-                    [pageSizeOptions]="[5, 15, 30]"
-                    aria-label="Select page"
-                    showFirstLastButtons
-                >
-                </mat-paginator>
-            </div>
+            <div class="footerTable" style="margin-top: 50px"></div>
         </table>
+        <mat-paginator
+            (page)="handlePageEvent($event)"
+            [length]="pagination.totalNumberOfElements"
+            [pageSize]="pagination.size"
+            showFirstLastButtons
+            aria-label="Select page"
+            [pageSizeOptions]="[5, 25, 50]"
+        >
+        </mat-paginator>
     </section>
 </main>

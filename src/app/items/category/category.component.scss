@@ -18,6 +18,8 @@ section.head-buttom {
         background-color: var(--blue1);
         color: white;
         border-radius: 4px;
+    } & :hover{
+        cursor: pointer;
     }
     div.filter {
         input {
@@ -68,7 +70,7 @@ td{
     justify-content: flex-start;
     font-size: 12px;
     font-weight: 500;
-    
+
 }
 
 .name {

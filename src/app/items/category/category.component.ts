@@ -1,20 +1,40 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { MaterialImportsModule } from '../../shared/modules/material-imports/material-imports.module';
 import { ICategory } from './icategory';
 import { IPagination } from '../../shared/models/ipagination';
 import { CategoryService } from './category.service';
 import { map } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
+import { EventService } from '../../shared/services/event.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { SubheaderComponent } from '../../shared/components/subheader/subheader.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-category',
     standalone: true,
-    imports: [CommonModule, MaterialImportsModule],
+    imports: [CommonModule, MaterialImportsModule, SubheaderComponent, RouterLink],
     templateUrl: './category.component.html',
     styleUrl: './category.component.scss',
 })
 export class CategoryComponent {
+
+    title = 'Categoria'
+    subtitle = 'Veja aqui suas categorias'
+
+    categoryForm: FormGroup;
+
+    constructor(
+        private fb: FormBuilder
+    ){
+        this.categoryForm = this.fb.group({
+            name: ''
+        })
+    }
+
+    private categoryService = inject(CategoryService);
+
     listCategory: ICategory[] = [];
     pagination: IPagination = {
         page: 0,
@@ -27,10 +47,9 @@ export class CategoryComponent {
 
     data = {
         page: 0,
-        size: 5
+        size: 5,
     };
 
-    constructor(private categoryService: CategoryService) {}
 
     ngOnInit() {
         this.getAllCategories(this.data);
@@ -46,18 +65,11 @@ export class CategoryComponent {
     getAllCategories(params: any) {
         this.categoryService
             .getAllCategories(params)
-            .pipe(
-                map ((req: any) => {
-                    return req.data
-                })
-            ).subscribe({
-                next: ((req: any) => {
-                    this.listCategory = req.content
-                    this.pagination = req.pagination
-                    console.log(this.listCategory);
-                    console.log(this.pagination);
-
-                })
+            .subscribe((response: any) => {
+                this.listCategory = response.data.content
+                this.pagination = response.data.pagination
+                console.log(this.pagination);
+                console.log(this.listCategory);
             })
     }
 }

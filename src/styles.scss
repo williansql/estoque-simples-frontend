@@ -182,3 +182,15 @@ input{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: #163159;
+  }
