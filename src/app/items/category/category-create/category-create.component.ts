@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { SubheaderComponent } from '../../../shared/components/subheader/subheader.component';
-import { RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CategoryService } from '../../../../../.history/src/app/items/category/category.service_20240527233448';
+import { RouterLink } from '@angular/router';
+
+import { SubheaderComponent } from '../../../shared/components/subheader/subheader.component';
+import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'app-category-create',
@@ -24,9 +25,8 @@ export class CategoryCreateComponent {
 
     categoryForm: FormGroup;
 
-    categoryService = inject(CategoryService);
-
     constructor(
+        private categoryService: CategoryService,
         private fb: FormBuilder
     ){
         this.categoryForm = this.fb.group({
