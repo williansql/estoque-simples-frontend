@@ -6,11 +6,21 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { getPortuguesePaginatorIntl } from './shared/models/translate-paginator';
+import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        provideRouter(routes),
         provideAnimationsAsync(),
+        provideToastr(
+            {
+                closeButton: true,
+                timeOut: 3000,
+                positionClass: 'toast-top-right',
+                preventDuplicates: false,
+                progressBar: true
+            }
+        ),
+        provideRouter(routes),
         provideHttpClient(withFetch()),
         {
             provide: LOCALE_ID,
@@ -18,7 +28,8 @@ export const appConfig: ApplicationConfig = {
         },
         {
             provide: MatPaginatorIntl,
-            useValue: getPortuguesePaginatorIntl()
-          }
+            useValue: getPortuguesePaginatorIntl(),
+        },
+        provideAnimationsAsync(),
     ],
 };

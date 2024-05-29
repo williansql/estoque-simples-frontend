@@ -4,17 +4,18 @@ import { MaterialImportsModule } from '../../shared/modules/material-imports/mat
 import { ICategory } from './icategory';
 import { IPagination } from '../../shared/models/ipagination';
 import { CategoryService } from './category.service';
-import { map } from 'rxjs';
+import { Observable, Subject, debounceTime, map, startWith } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 import { EventService } from '../../shared/services/event.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SubheaderComponent } from '../../shared/components/subheader/subheader.component';
 import { RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-category',
     standalone: true,
-    imports: [CommonModule, MaterialImportsModule, SubheaderComponent, RouterLink],
+    imports: [CommonModule, MaterialImportsModule, SubheaderComponent, RouterLink, ReactiveFormsModule],
     templateUrl: './category.component.html',
     styleUrl: './category.component.scss',
 })
@@ -29,11 +30,12 @@ export class CategoryComponent {
         private fb: FormBuilder
     ){
         this.categoryForm = this.fb.group({
-            name: ''
+            name: ['']
         })
     }
 
     private categoryService = inject(CategoryService);
+    private toastr = inject(ToastrService);
 
     listCategory: ICategory[] = [];
     pagination: IPagination = {
@@ -48,12 +50,19 @@ export class CategoryComponent {
     data = {
         page: 0,
         size: 5,
+        name: ''
     };
 
 
     ngOnInit() {
         this.getAllCategories(this.data);
+        this.findForm()
+        this.categoryService.listCategoryEvent.subscribe(() =>{
+            this.getAllCategories(this.data)
+        })
+
     }
+
 
     handlePageEvent(e: PageEvent) {
 		this.pagination.size = e.pageSize
@@ -62,7 +71,17 @@ export class CategoryComponent {
 		this.getAllCategories(this.pagination)
 	}
 
-    getAllCategories(params: any) {
+    findForm() {
+		this.categoryForm
+			.get('name')
+			?.valueChanges.pipe(debounceTime(800))
+			.subscribe((req) => {
+				this.data.name = req
+				this.getAllCategories(this.data)
+			})
+	}
+
+    getAllCategories(params?: any) {
         this.categoryService
             .getAllCategories(params)
             .subscribe((response: any) => {
@@ -72,4 +91,5 @@ export class CategoryComponent {
                 console.log(this.listCategory);
             })
     }
+
 }

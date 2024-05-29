@@ -18,7 +18,8 @@ section.head-buttom {
         background-color: var(--blue1);
         color: white;
         border-radius: 4px;
-    } & :hover{
+    }
+    div.button:hover{
         cursor: pointer;
     }
     div.filter {

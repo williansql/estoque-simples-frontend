@@ -8,8 +8,8 @@
             <i class="material-icons">add</i>
             <span>categorias</span>
         </div>
-        <div class="filter">
-            <input type="text" placeholder="Buscar categoria" />
+        <div [formGroup]="categoryForm" class="filter">
+            <input type="text" placeholder="Buscar categoria" formControlName="name" />
         </div>
     </section>
 
