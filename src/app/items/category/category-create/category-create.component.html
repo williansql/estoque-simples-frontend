@@ -16,7 +16,7 @@
     <section class="form" >
         <form [formGroup]="categoryForm">
             <div class="input-form">
-                <span>Cadastro de categorias</span>
+                <span style="margin-bottom: 5px;" >Cadastro de categorias</span>
                 <input
                     class="input-name"
                     type="text"
@@ -27,8 +27,27 @@
                 </button>
             </div>
         </form>
-        <div>
-            {{ this.categoryForm.value | json }}
-        </div>
     </section>
+
+    <hr>
+
+    <section class="subcategory">
+        <div class="subcategory">
+            <span class="title-subcategory" >Adcionar subcategoria?</span>
+            <label class="switch">
+                <input type="checkbox" (click)="toogleSubcategory()" >
+                <span class="slider round"></span>
+            </label>
+        </div>
+        @if (this.newSubcategory) {
+            <div class="subcategory-form">
+                <input class="input-name" type="text" placeholder="Selecione uma categoria">
+                <input class="input-name" type="text" placeholder="Nome da subcategoria">
+            </div>
+            <button style="margin-top: 20px;" (click)="saveCategory()"  class="submit">
+                <span>Salvar</span>
+            </button>
+        }
+    </section>
+
 </main>

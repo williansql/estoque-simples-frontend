@@ -30,6 +30,6 @@ export const appConfig: ApplicationConfig = {
             provide: MatPaginatorIntl,
             useValue: getPortuguesePaginatorIntl(),
         },
-        provideAnimationsAsync(),
+        provideAnimationsAsync(), provideAnimationsAsync(),
     ],
 };

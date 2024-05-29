@@ -34,13 +34,19 @@ section.head-buttom {
 }
 
 // LISTAGEM DE CATEGORIA
-section.list-category {
+
+div.list{
+    display: flex;
+    gap: 30px;
+}
+
+section.list-category, section.list-subcategory {
     margin-top: 30px;
     padding: 20px;
     border-radius: 10px;
     border: 1px solid rgba($color: #000000, $alpha: 0.2);
     background-color: white;
-    width: -webkit-fill-available;
+    flex: 1;
 }
 
 table {
@@ -75,7 +81,7 @@ td{
 }
 
 .name {
-    flex: 10;
+    flex: 5;
 }
 .subordination {
     display: flex;
@@ -85,7 +91,12 @@ td{
 .actions {
     flex: 1;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    div.actions{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
     i{
         font-size: 18px;
     }

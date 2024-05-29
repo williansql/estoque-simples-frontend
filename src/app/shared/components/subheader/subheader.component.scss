@@ -1,4 +1,25 @@
-div.container{
+div.subheader-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div.title-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    span.title-header {
+        font-size: 18px;
+        color: var(--blue2);
+        font-weight: 500;
+    }
+
+    i {
+        font-size: 30px;
+        color: var(--blue2);
+    }
 }
 
 span.title{
