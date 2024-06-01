@@ -1,0 +1,45 @@
+div.container{
+    padding: 10px 30px 20px 30px;
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgba($color: #000000, $alpha: 0.2);
+}
+
+div.subheader-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div.title-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    span.title-header {
+        font-size: 18px;
+        color: var(--blue2);
+        font-weight: 500;
+    }
+
+    i {
+        font-size: 30px;
+        color: var(--blue2);
+    }
+}
+
+span.title{
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--blue1);
+}
+
+hr{
+    opacity: 0.6;
+}
+
+span.subtitle{
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray1);
+}

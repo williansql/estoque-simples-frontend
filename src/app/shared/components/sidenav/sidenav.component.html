@@ -1,0 +1,44 @@
+<mat-sidenav-container>
+    <mat-sidenav
+        class="sidenav"
+        mode="side"
+        fixedInViewport="true"
+        opened="true"
+        disableClose="true"
+        style="width: 200px; background-color: var(--blue1);">
+
+        <div class="logo">
+            <img class="logo" src="../../../../assets/logo/logo.svg" alt="Logo estoque simples">
+            <div style="display: flex; flex-direction: column;" class="logo-name">
+                <span>Estoque</span>
+                <span>Simples</span>
+            </div>
+        </div>
+        <div class="menu" >
+            <div class="menu-list" >
+                <img class="menu-list" src="../../../../assets/icons/box.svg" alt="items">
+                <span>Items</span>
+            </div>
+            <div class="menu-list" >
+                <i class="material-icons">category</i>
+                <span>Categoria</span>
+            </div>
+            <div class="menu-list">
+                <i class="material-icons">local_shipping</i>
+                <span>Fornecedor</span>
+            </div>
+            <div class="menu-list">
+                <i class="material-icons" >person</i>
+                <span>Clientes</span>
+            </div>
+        </div>
+    </mat-sidenav>
+    <!-- Body -->
+    <mat-sidenav-content style="background-color: var(--bg);">
+        <app-subheader></app-subheader>
+        <div style="margin: 20px 30px 80px 30px;">
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,68 @@
+<main>
+    <span class="title-category-list">
+        Lista de categorias
+    </span>
+    <section class="list-category">
+        <table>
+            <div [formGroup]="categoryForm" class="filter">
+                <input
+                    type="text"
+                    placeholder="Buscar categoria"
+                    formControlName="name"
+                />
+            </div>
+            <tr class="category-name">
+                <th class="name">Nome</th>
+                <th class="edit">
+                    Editar
+                </th>
+                <th class="delete">
+                    Excluir
+                </th>
+            </tr>
+            <hr />
+            <div class="body">
+                @for (category of listCategory; track $index) {
+                <tr class="data-list">
+                    <td class="name">{{ category.name }}</td>
+                    <td
+                        (click)="openModal($index)"
+                        class="edit">
+                        <i class="material-icons">edit</i>
+                    </td>
+                    <td
+                        (click)="showDeleteCategoriesOrNot($index)"
+                        class="delete">
+                        @if (!viewDeleteCategory.get($index);
+                        ) {
+                            <div class="delete-dialog">
+                                    <i class="material-icons">delete</i>
+                            </div>
+                        } @else {
+                            <div class="delete-category">
+                                <div (click)="handleDeleteCategory()" class="delete-category-success">
+                                    <i class="material-icons">done</i>
+                                </div>
+                                <div class="delete-category-cancel">
+                                    <i class="material-icons">close</i>
+                                </div>
+                            </div>
+                        }
+                    </td>
+                </tr>
+                <mat-divider></mat-divider>
+                }
+            </div>
+            <mat-paginator
+                style="margin: 10px"
+                (page)="handlePageEvent($event)"
+                [length]="pagination.totalNumberOfElements"
+                [pageSize]="pagination.size"
+                [showFirstLastButtons]="false"
+                aria-label="Select page"
+                [pageSizeOptions]="[5, 25, 50]"
+            >
+            </mat-paginator>
+        </table>
+    </section>
+</main>

@@ -1,0 +1,27 @@
+div.container {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+div.title-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+    gap: 20px;
+}
+
+span.title-header {
+    font-size: 18px;
+    color: var(--blue2);
+    font-weight: 500;
+}
+
+i {
+    font-size: 30px;
+    color: var(--blue2);
+}

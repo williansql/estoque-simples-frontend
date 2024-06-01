@@ -1,0 +1,48 @@
+<div class="modal">
+	<div class="modal-container">
+		<div
+			class="modal-body"
+			[ngClass]="{
+				updateMode: update,
+				simpleMode: simple,
+				imageMode: image,
+				popupMode: popup,
+				open: popup && openCloseAnimation
+			}"
+		>
+			<div *ngIf="!popup" class="modal-header">
+				<div class="title-content" *ngIf="title">
+					<div>
+						<span
+							class="back"
+							*ngIf="!ignoreBackButton"
+							(click)="previousPage()"
+						>
+							<img src="/assets/icons/back.svg" alt="Voltar" />
+						</span>
+						<p>{{ title }}</p>
+					</div>
+					<div class="divider"></div>
+				</div>
+				<button
+					*ngIf="showButtonClose"
+					class="modal-close"
+					(click)="close()"
+				>
+					<img src="assets/icons/close-black.svg" alt="" />
+				</button>
+			</div>
+			<div class="modal-content">
+				<button
+					*ngIf="popup && showButtonClose"
+					class="modal-close"
+					(click)="close()"
+				>
+					<img src="assets/icons/close-black.svg" alt="" />
+				</button>
+				<ng-container #container></ng-container>
+			</div>
+		</div>
+		<div class="modal-background"></div>
+	</div>
+</div>

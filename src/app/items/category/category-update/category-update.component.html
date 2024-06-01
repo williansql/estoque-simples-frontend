@@ -1,0 +1,18 @@
+<app-subheader-modal></app-subheader-modal>
+<main>
+    <section class="form" >
+        <form [formGroup]="categoryForm">
+            <div class="input-form">
+                <span style="margin-bottom: 5px;">Edite sua categorias</span>
+                <input
+                    class="input-name"
+                    type="text"
+                    placeholder="Nome da categoria"
+                    formControlName="name">
+                <button (click)="updateCategory()"  class="submit">
+                    <span class="buttom">Salvar</span>
+                </button>
+            </div>
+        </form>
+    </section>
+</main>

@@ -1,0 +1,39 @@
+div.subheader-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div.title-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    span.title-header {
+        font-size: 18px;
+        color: var(--blue2);
+        font-weight: 500;
+    }
+
+    i {
+        font-size: 30px;
+        color: var(--blue2);
+    }
+}
+
+span.title{
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--blue1);
+}
+
+hr{
+    opacity: 0.6;
+}
+
+span.subtitle{
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray1);
+}
