@@ -5,7 +5,8 @@ import { EventEmitter, Injectable } from '@angular/core';
 })
 export class EventService {
 
-    listCategoryEvent = new EventEmitter<boolean>();
+    listCategoryEvent: EventEmitter<boolean> = new EventEmitter<boolean>()
+    listSubcategoryEvent: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   constructor() { }
 }

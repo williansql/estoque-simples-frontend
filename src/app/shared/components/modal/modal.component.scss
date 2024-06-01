@@ -1,0 +1,240 @@
+.modal {
+    display: block;
+    z-index: 999;
+    overflow: auto;
+    width: auto;
+}
+
+.modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+
+    ::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--white);
+        border-radius: 0 0.6rem 0.6rem 0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--blue);
+        border-radius: 0 0.6rem 0.6rem 0;
+
+        &:hover {
+            background: var(--blue-hover);
+        }
+    }
+}
+
+.modal-body {
+    overflow: auto;
+    max-height: 50rem;
+    position: relative;
+    background-color: var(--white);
+    max-width: 900px;
+    min-width: 900px;
+    z-index: 900;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+    .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .title-content {
+            width: 100%;
+
+            > div {
+                display: flex;
+
+                .back {
+                    margin-right: 1rem;
+                    cursor: pointer;
+                }
+            }
+
+            p {
+                font-weight: 700;
+                font-size: 1.43rem !important;
+                margin-bottom: 1rem;
+                color: var(--blue);
+            }
+
+            .divider {
+                width: 100%;
+                border-bottom: 2px solid var(--lines);
+                opacity: 0.5;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+
+            img {
+                padding: 0.6rem 0.5rem 0.4rem 0.5rem;
+            }
+        }
+    }
+}
+
+.modal-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.65;
+    z-index: 800;
+}
+
+.active {
+    display: block !important;
+}
+
+.inactive {
+    display: none !important;
+}
+
+.popupMode {
+    padding: 1rem !important;
+    display: table;
+    width: auto;
+
+    .modal-content {
+        padding: 0 !important;
+
+        .modal-close {
+            position: absolute;
+            cursor: pointer;
+            top: 1.2rem;
+            right: 1.2rem;
+            border: solid var(--green-secondary-to-yellow);
+            background-color: var(--green-secondary-to-yellow);
+            border-radius: 3rem;
+
+            img {
+                filter: var(--filter-white-to-black);
+                width: 2rem;
+                padding: 0.3rem 0.3rem 0.2rem 0.4rem;
+            }
+        }
+    }
+}
+
+.open {
+    animation: scale-in-center 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.close {
+    animation: scale-out-center 0.3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@media (min-width: 768px) {
+    .modal-body {
+        width: fit-content;
+        padding: 2.5rem;
+
+        .modal-header {
+            .title-content {
+                p {
+                    font-size: var(--font-size-18);
+                }
+            }
+        }
+    }
+
+    .popupMode {
+        padding: 2.5rem !important;
+
+        .modal-content {
+            .modal-close {
+                top: 2.8rem;
+                right: 3rem;
+            }
+        }
+    }
+
+    .updateMode {
+        width: 80%;
+    }
+
+    .simpleMode {
+        background-color: initial !important;
+
+        .modal-header {
+            margin-bottom: 0;
+        }
+    }
+
+    .imageMode {
+        background-color: transparent;
+        border-radius: 0;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        .modal-header {
+            margin-bottom: 0 !important;
+
+            button {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                cursor: default !important;
+
+                img {
+                    padding-bottom: 1rem !important;
+                    cursor: pointer !important;
+                }
+            }
+        }
+
+        .modal-content {
+            padding: 0 !important;
+        }
+    }
+}
+
+@keyframes scale-in-center {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scale-out-center {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}

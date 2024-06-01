@@ -1,9 +1,5 @@
-<app-subheader
-    [subheader]="{title: title, subtitle: subtitle}"
->
-</app-subheader>
 <main>
-    <section class="head-buttom">
+    <!-- <section class="head-buttom">
         <div [routerLink]="'/category'" class="button-back">
             <i class="material-icons">arrow_back</i>
             <span class="button" >Voltar</span>
@@ -12,7 +8,7 @@
             <i class="material-icons">add</i>
             <span class="button">Subcategoria</span>
         </div>
-    </section>
+    </section> -->
     <section class="form" >
         <form [formGroup]="categoryForm">
             <div class="input-form">
@@ -23,15 +19,14 @@
                     placeholder="Nome da categoria"
                     formControlName="name">
                 <button (click)="saveCategory()"  class="submit">
-                    <span>Salvar</span>
+                    <span class="buttom">Salvar</span>
                 </button>
             </div>
         </form>
     </section>
 
-    <hr>
 
-    <section class="subcategory">
+    <!-- <section class="subcategory">
         <div class="subcategory">
             <span class="title-subcategory" >Adcionar subcategoria?</span>
             <label class="switch">
@@ -48,6 +43,6 @@
                 <span>Salvar</span>
             </button>
         }
-    </section>
+    </section> -->
 
 </main>

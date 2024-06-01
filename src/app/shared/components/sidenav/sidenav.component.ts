@@ -24,13 +24,4 @@ import { FooterComponent } from '../footer/footer.component';
   styleUrl: './sidenav.component.scss'
 })
 export class SidenavComponent {
-
-    constructor(
-        private routeActive: ActivatedRoute,
-        private router: Router
-    ){}
-
-    activeRoute(){
-    }
-
 }

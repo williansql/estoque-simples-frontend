@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SubheaderService } from './subheader.service';
 
 @Component({
   selector: 'app-subheader',
@@ -8,9 +9,15 @@ import { Component, Input } from '@angular/core';
   styleUrl: './subheader.component.scss'
 })
 export class SubheaderComponent {
-    @Input() subheader: {title: string, subtitle: string} = {
-        title: 'Categorias',
-        subtitle: 'Veja aqui suas categorias'
+
+    private subheaderService = inject(SubheaderService);
+
+    get title(): string{
+        return this.subheaderService.subheaderData.title;
+    }
+
+    get subtitle(): string{
+        return this.subheaderService.subheaderData.subtitle;
     }
 
 }

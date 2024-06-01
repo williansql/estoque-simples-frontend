@@ -11,7 +11,7 @@ const apiCategory = `${environment.baseApi}/category`
 })
 export class CategoryService {
 
-    listCategoryEvent: EventEmitter<boolean> = new EventEmitter<boolean>()
+    categoryEvent: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   constructor(
     private http: HttpClient
@@ -29,5 +29,14 @@ export class CategoryService {
     })
   }
 
+  updateCategory(id?: any, data?: any): Observable<any>{
+    const url = `${apiCategory}/${id}`
+    return this.http.put<any>(url, data)
+  }
+
+  deleteCategory(id: number): Observable<any> {
+    const url = `${apiCategory}/${id}`
+    return this.http.delete<any>(url)
+}
 
 }

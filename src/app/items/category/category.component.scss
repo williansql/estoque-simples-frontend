@@ -1,103 +1,19 @@
-main {
-    margin-top: 30px;
-}
-
-// BOTÃO
-section.head-buttom {
-    display: flex;
-    justify-content: space-between;
-    div.button {
-        width: fit-content;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5px;
-        padding: 5px 15px;
-        font-size: 14px;
-        font-weight: 500;
-        background-color: var(--blue1);
-        color: white;
-        border-radius: 4px;
-    }
-    div.button:hover{
-        cursor: pointer;
-    }
-    div.filter {
-        input {
-            width: 200px;
-            height: 30px;
-            border-radius: 4px;
-            border: 1px solid var(--gray2);
-            padding-left: 12px;
-        }
-    }
-}
-
-// LISTAGEM DE CATEGORIA
-
-div.list{
-    display: flex;
-    gap: 30px;
-}
-
-section.list-category, section.list-subcategory {
-    margin-top: 30px;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgba($color: #000000, $alpha: 0.2);
-    background-color: white;
-    flex: 1;
-}
-
-table {
+div.list {
     width: 100%;
-}
-
-div.body{
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
-tr {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-th {
-    display: flex;
-    justify-content: flex-start;
-}
-
-td{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 12px;
-    font-weight: 500;
-
-}
-
-.name {
-    flex: 5;
-}
-.subordination {
-    display: flex;
-    justify-content: start;
-    flex: 3;
-}
-.actions {
+div.category-list {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    div.actions{
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-    }
-    i{
-        font-size: 18px;
-    }
+}
+
+div.subcategory-list {
+    flex: 1;
+}
+
+span.title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--blue1);
 }

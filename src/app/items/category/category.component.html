@@ -1,111 +1,15 @@
-<ng-template #deleteCategory>
-    <div>
-        <i class="material-icons">check</i>
-        <i class="material-icons">cancel</i>
-    </div>
-</ng-template>
-
-<app-subheader
-    [subheader]="{ title: title, subtitle: subtitle }"
-></app-subheader>
-
 <main>
     <!-- Botão para adicionar categoria -->
-    <section class="head-buttom">
+    <!-- <section class="head-buttom">
         <div routerLink="create" class="button">
             <i class="material-icons">add</i>
             <span>categorias</span>
         </div>
-        <div [formGroup]="categoryForm" class="filter">
-            <input
-                type="text"
-                placeholder="Buscar categoria"
-                formControlName="name"
-            />
-        </div>
-    </section>
+    </section> -->
+
+    <app-category-create></app-category-create>
 
     <!-- Lista de categorias -->
-    <div class="list">
-        <section class="list-category">
-            <table>
-                <tr class="category-name">
-                    <th class="name">Nome</th>
-                    <th class="subordination">Subordinação</th>
-                    <th
-                        style="display: flex; justify-content: center"
-                        class="actions"
-                    >
-                        Ações
-                    </th>
-                </tr>
-                <hr />
-                <div class="body">
-                    @for (category of listCategory; track category) {
-                    <tr class="data-list">
-                        <td class="name">{{ category.name }}</td>
-                        <td class="subordination">Subordinação</td>
-                        <td class="actions">
-                            <div class="actions">
-                                <i style="color: green" class="material-icons">edit</i>
-                                <i style="color: #d32f2f" class="material-icons">delete</i>
-                            </div>
-                        </td>
-                    </tr>
-                    <mat-divider></mat-divider>
-                    }
-                </div>
-                <div class="footerTable" style="margin-top: 50px"></div>
-            </table>
-            <mat-paginator
-                (page)="handlePageEvent($event)"
-                [length]="pagination.totalNumberOfElements"
-                [pageSize]="pagination.size"
-                showFirstLastButtons
-                aria-label="Select page"
-                [pageSizeOptions]="[5, 25, 50]"
-            >
-            </mat-paginator>
-        </section>
-        <section class="list-subcategory">
-            <table>
-                <tr class="category-name">
-                    <th class="name">Nome</th>
-                    <th class="subordination">Subordinação</th>
-                    <th
-                        style="display: flex; justify-content: center"
-                        class="actions"
-                    >
-                        Ações
-                    </th>
-                </tr>
-                <hr />
-                <div class="body">
-                    @for (category of listCategory; track category) {
-                    <tr class="data-list">
-                        <td class="name">{{ category.name }}</td>
-                        <td class="subordination">Subordinação</td>
-                        <td class="actions">
-                            <div class="actions">
-                                <i style="color: green" class="material-icons">edit</i>
-                                <i style="color: #d32f2f" class="material-icons">delete</i>
-                            </div>
-                        </td>
-                    </tr>
-                    <mat-divider></mat-divider>
-                    }
-                </div>
-                <div class="footerTable" style="margin-top: 50px"></div>
-            </table>
-            <mat-paginator
-                (page)="handlePageEvent($event)"
-                [length]="pagination.totalNumberOfElements"
-                [pageSize]="pagination.size"
-                showFirstLastButtons
-                aria-label="Select page"
-                [pageSizeOptions]="[5, 25, 50]"
-            >
-            </mat-paginator>
-        </section>
-    </div>
+    <app-category-table></app-category-table>
+
 </main>

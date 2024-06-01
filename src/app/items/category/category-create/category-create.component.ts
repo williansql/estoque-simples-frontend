@@ -1,19 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import {
-    FormBuilder,
-    FormGroup,
-    ReactiveFormsModule,
-    Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { SubheaderComponent } from '../../../shared/components/subheader/subheader.component';
 import { CategoryService } from '../category.service';
-import { ToastrModule, ToastrService, provideToastr } from 'ngx-toastr';
-import { useAnimation } from '@angular/animations';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { catchError } from 'rxjs';
 
 const toastConfig = {
     timeOut: 3000,
@@ -37,8 +29,6 @@ const toastConfig = {
     styleUrl: './category-create.component.scss',
 })
 export class CategoryCreateComponent {
-    title = 'Categoria';
-    subtitle = 'Cadastre suas categorias';
 
     categoryForm: FormGroup;
 
@@ -47,7 +37,7 @@ export class CategoryCreateComponent {
     constructor(
         private categoryService: CategoryService,
         private fb: FormBuilder,
-        private toast: ToastrService
+        private toast: ToastrService,
     ) {
         this.categoryForm = this.fb.group({
             name: [null, Validators.required],
@@ -55,7 +45,6 @@ export class CategoryCreateComponent {
     }
 
     ngOnInit(){
-
     }
 
     toogleSubcategory(){
@@ -73,6 +62,7 @@ export class CategoryCreateComponent {
                 console.log(data);
                 this.toast.success(data.message);
                 this.categoryForm.reset();
+                this.categoryService.categoryEvent.emit(true)
             },
             (error: any) => {
                 this.toast.error(error.error.message);

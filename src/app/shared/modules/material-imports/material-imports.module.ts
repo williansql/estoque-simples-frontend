@@ -20,6 +20,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
         MatPaginatorModule,
         MatDividerModule,
         MatAutocompleteModule,
+
     ],
 })
 export class MaterialImportsModule {}
