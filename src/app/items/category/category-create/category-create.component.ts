@@ -1,20 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-
 import { SubheaderComponent } from '../../../shared/components/subheader/subheader.component';
+import { MaterialImportsModule } from '../../../shared/modules/material-imports/material-imports.module';
+import { Router, RouterLink } from '@angular/router';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CategoryService } from '../category.service';
-
-const toastConfig = {
-    timeOut: 3000,
-    positionClass: 'toast-top-right',
-    preventDuplicates: true,
-    closeButton: true,
-    tapToDismiss: true,
-    progressBar: true,
-};
+import { ToastrService } from 'ngx-toastr';
+import { SubheaderService } from '../../../shared/components/subheader/subheader.service';
 
 @Component({
     selector: 'app-category-create',
@@ -22,51 +14,44 @@ const toastConfig = {
     imports: [
         CommonModule,
         SubheaderComponent,
+        MaterialImportsModule,
         RouterLink,
         ReactiveFormsModule,
     ],
     templateUrl: './category-create.component.html',
-    styleUrl: './category-create.component.scss',
+    styleUrl: './category-create.component.scss'
 })
 export class CategoryCreateComponent {
 
-    categoryForm: FormGroup;
+    categoryForm: FormGroup
 
-    newSubcategory: boolean = false;
 
     constructor(
-        private categoryService: CategoryService,
         private fb: FormBuilder,
-        private toast: ToastrService,
+        private categoryService: CategoryService,
+        private router: Router,
+        private toastr: ToastrService,
     ) {
         this.categoryForm = this.fb.group({
-            name: [null, Validators.required],
-        });
+            name: ''
+        })
     }
 
-    ngOnInit(){
-    }
-
-    toogleSubcategory(){
-        this.newSubcategory = !this.newSubcategory;
-        console.log(this.newSubcategory);
+    ngOnInit(): void{
 
     }
 
-    saveCategory() {
-        let category = {
-            name: this.categoryForm.get('name')?.value,
-        };
-        this.categoryService.createCategory(category).subscribe(
-            (data) => {
-                console.log(data);
-                this.toast.success(data.message);
-                this.categoryForm.reset();
-                this.categoryService.categoryEvent.emit(true)
-            },
-            (error: any) => {
-                this.toast.error(error.error.message);
-            }
-        );
+    createCategory() {
+        this.categoryService.createCategory(this.categoryForm.value).subscribe((data: any) =>{
+            console.log(data);
+            this.toastr.success(data.message);
+            this.categoryForm.reset();
+            this.router.navigate(['/category'])
+
+        },
+        (error) => {
+            this.toastr.error(error.error.message);
+        }
+    )
     }
 }

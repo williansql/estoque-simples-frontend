@@ -1,42 +1,46 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-
 import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
+import { ICategory } from './icategory';
 
-const apiCategory = `${environment.baseApi}/category`
+const API = `${environment.baseApi}/category`;
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class CategoryService {
 
-    categoryEvent: EventEmitter<boolean> = new EventEmitter<boolean>()
+    closeModal: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(
-    private http: HttpClient
-  ) { }
+    constructor( private http: HttpClient ) { }
 
-  createCategory(data: any): Observable<any>{
-    return this.http.post<any>(apiCategory, data)
-  }
+    createCategory(data: any): Observable<ICategory>{
+        return this.http.post<ICategory>(API, data);
+    }
 
-  getAllCategories(data?: any): Observable<any[]>{
-    return this.http.get<any[]>(apiCategory, {
-        params: {
-            ...data
-        }
-    })
-  }
+    getCategories(data: any): Observable<ICategory[]>{
+        return this.http.get<ICategory[]>(API, {
+            params: data
+        });
+    }
 
-  updateCategory(id?: any, data?: any): Observable<any>{
-    const url = `${apiCategory}/${id}`
-    return this.http.put<any>(url, data)
-  }
+    getAllCategories(data?: any): Observable<ICategory[]>{
+        return this.http.get<ICategory[]>(API, {
+            params: {
+                ...data
+            }
+        })
+      }
 
-  deleteCategory(id: number): Observable<any> {
-    const url = `${apiCategory}/${id}`
-    return this.http.delete<any>(url)
-}
+      updateCategory(id?: any, data?: any): Observable<any>{
+        const url = `${API}/${id}`
+        return this.http.put<any>(url, data)
+      }
+
+      deleteCategory(id: number): Observable<any> {
+        const url = `${API}/${id}`
+        return this.http.delete<any>(url)
+    }
 
 }

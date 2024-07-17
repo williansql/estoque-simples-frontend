@@ -1,63 +1,63 @@
+import { Component, ElementRef, inject, Input, ViewChild } from '@angular/core';
+import { ICategory } from '../icategory';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MaterialImportsModule } from '../../../shared/modules/material-imports/material-imports.module';
+import { SubheaderComponent } from '../../../shared/components/subheader/subheader.component';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { SubheaderService } from '../../../shared/components/subheader/subheader.service';
+import { CategoryService } from '../category.service';
+import { ModalService } from '../../../shared/components/modal/modal.service';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
-import { SubheaderModalComponent } from '../../../shared/components/subheader-modal/subheader-modal.component';
-import { CategoryService } from '../category.service';
-import { ICategory } from '../icategory';
-import { SubheaderModalService } from '../../../shared/components/subheader-modal/subheader-modal.service';
-
 @Component({
-  selector: 'app-category-update',
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    SubheaderModalComponent,
-  ],
-  templateUrl: './category-update.component.html',
-  styleUrl: './category-update.component.scss'
+    selector: 'app-category-update',
+    standalone: true,
+    imports: [
+        CommonModule,
+        MaterialImportsModule,
+        SubheaderComponent,
+        ReactiveFormsModule,
+    ],
+    templateUrl: './category-update.component.html',
+    styleUrl: './category-update.component.scss'
 })
 export class CategoryUpdateComponent {
 
-    category?: ICategory
-    categoryForm: FormGroup
+    category?: ICategory;
+    categoryForm!: FormGroup;
 
     constructor(
-        private categoryService: CategoryService,
-        private toastr: ToastrService,
         private fb: FormBuilder,
-        private subheaderModal: SubheaderModalService
-    ){
+        private categoryService: CategoryService,
+        private modalService: ModalService,
+        private toastr: ToastrService,
+        private router: Router
+
+    ) {
         this.categoryForm = this.fb.group({
-            name: [null, Validators.required]
+            name: [null]
         })
-
     }
 
-    ngOnInit(){
-        this.subheaderModal.subheaderData = {
-            title: "Categoria",
-            subtitle: "Edite sua categoria"
-        }
-        this.categoryForm.get('name')?.patchValue(this.category?.name)
+    ngOnInit(): void {
+        this.categoryForm.get('name')?.patchValue(this.category!.name);
     }
 
-    updateCategory(){
-        let category = {
-            name: this.categoryForm.get('name')?.value
-        }
-        this.categoryService.updateCategory(this.category?.id, category).subscribe((data) => {
-            console.log(data);
-            this.toastr.success(data.message)
-            this.categoryForm.reset()
+    updateCategory() {
+        this.categoryService.updateCategory(this.category!.id, this.categoryForm.value).subscribe((data: any) => {
+            this.modalService.close();
+            this.router.navigate(['/category']);
+            this.toastr.success(data.message);
         },
-        (err: any) => {
-            this.toastr.error(err.error.error);
+        (error) => {
+            this.toastr.error(error.error.message);
         }
-    )}
+    )
+    }
 
-
-
+    changeClose() {
+        this.modalService.close();
+        this.router.navigate(['/category']);
+    }
 }

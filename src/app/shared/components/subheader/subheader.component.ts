@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { SubheaderService } from './subheader.service';
 
 @Component({
@@ -10,14 +10,19 @@ import { SubheaderService } from './subheader.service';
 })
 export class SubheaderComponent {
 
-    private subheaderService = inject(SubheaderService);
-
-    get title(): string{
-        return this.subheaderService.subheaderData.title;
+    @Input() subheader = {
+        title: '',
+        subtitle: ''
     }
 
-    get subtitle(): string{
-        return this.subheaderService.subheaderData.subtitle;
-    }
+    // private subheaderService = inject(SubheaderService);
+
+    // get title(): string{
+    //     return this.subheaderService.subheaderData.title;
+    // }
+
+    // get subtitle(): string{
+    //     return this.subheaderService.subheaderData.subtitle;
+    // }
 
 }

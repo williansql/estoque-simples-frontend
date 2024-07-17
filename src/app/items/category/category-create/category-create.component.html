@@ -1,48 +1,21 @@
+<app-subheader
+    [subheader]="{
+        title: 'Categoria',
+        subtitle: 'Crie uma nova categoria'}">
+</app-subheader>
 <main>
-    <!-- <section class="head-buttom">
-        <div [routerLink]="'/category'" class="button-back">
-            <i class="material-icons">arrow_back</i>
-            <span class="button" >Voltar</span>
-        </div>
-        <div class="button">
-            <i class="material-icons">add</i>
-            <span class="button">Subcategoria</span>
-        </div>
-    </section> -->
-    <section class="form" >
-        <form [formGroup]="categoryForm">
-            <div class="input-form">
-                <span style="margin-bottom: 5px;" >Cadastro de categorias</span>
-                <input
-                    class="input-name"
-                    type="text"
-                    placeholder="Nome da categoria"
-                    formControlName="name">
-                <button (click)="saveCategory()"  class="submit">
-                    <span class="buttom">Salvar</span>
+    <section>
+        <div [formGroup]="categoryForm" class="card-create-category">
+            <span class="input-name-category">Nome da categoria</span>
+            <input formControlName="name" class="input-name-category" type="text" placeholder="Nome da categoria">
+            <div class="buttons">
+                <button (click)="createCategory()" class="save">
+                    <span>SALVAR</span>
+                </button>
+                <button [routerLink]="'/category'" class="cancel">
+                    <span>CANCELAR</span>
                 </button>
             </div>
-        </form>
-    </section>
-
-
-    <!-- <section class="subcategory">
-        <div class="subcategory">
-            <span class="title-subcategory" >Adcionar subcategoria?</span>
-            <label class="switch">
-                <input type="checkbox" (click)="toogleSubcategory()" >
-                <span class="slider round"></span>
-            </label>
         </div>
-        @if (this.newSubcategory) {
-            <div class="subcategory-form">
-                <input class="input-name" type="text" placeholder="Selecione uma categoria">
-                <input class="input-name" type="text" placeholder="Nome da subcategoria">
-            </div>
-            <button style="margin-top: 20px;" (click)="saveCategory()"  class="submit">
-                <span>Salvar</span>
-            </button>
-        }
-    </section> -->
-
+    </section>
 </main>

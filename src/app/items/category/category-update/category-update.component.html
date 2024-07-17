@@ -1,18 +1,11 @@
-<app-subheader-modal></app-subheader-modal>
+<app-subheader
+    [subheader]="{title: 'Categoria', subtitle: 'Atualize sua categoria'}"></app-subheader>
 <main>
-    <section class="form" >
-        <form [formGroup]="categoryForm">
-            <div class="input-form">
-                <span style="margin-bottom: 5px;">Edite sua categorias</span>
-                <input
-                    class="input-name"
-                    type="text"
-                    placeholder="Nome da categoria"
-                    formControlName="name">
-                <button (click)="updateCategory()"  class="submit">
-                    <span class="buttom">Salvar</span>
-                </button>
-            </div>
-        </form>
-    </section>
+    <form [formGroup]="categoryForm" class="card-update-category">
+        <input type="text" formControlName="name">
+    </form>
+    <div class="buttons">
+        <button (click)="updateCategory()" class="save" >SALVAR</button>
+        <button (click)="changeClose()" class="cancel" >CANCELAR</button>
+    </div>
 </main>

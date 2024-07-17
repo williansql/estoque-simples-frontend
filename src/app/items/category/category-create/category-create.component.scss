@@ -1,165 +1,71 @@
-section.head-buttom{
-    // margin-top: 30px;
+main {
+    margin-top: 50px;
     display: flex;
-    // gap: 20px;
+    flex-direction: column
 }
 
-div.button {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding: 5px 15px;
-    font-size: 14px;
-    font-weight: 500;
-    background-color: var(--blue1);
-    color: white;
-    border-radius: 4px;
-}
-div.button:hover{
-    cursor: pointer;
+section {
+    div.card-create-category {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba($color: #000000, $alpha: 0.2);
+        color: #5856D6;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: 30px;
+        border-radius: 20px;
+        gap: 20px;
+
+        input {
+            height: 50px;
+            outline-color: #5856D6;
+            border-radius: 5px;
+            padding-left: 12px;
+        }
+    }
 }
 
-div.button-back {
-    width: fit-content;
+.buttons {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    padding: 5px 15px;
-    font-size: 14px;
-    font-weight: 500;
-    background-color: white;
-    color: var(--blue1);
-    border-radius: 4px;
-    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.2);
-}
-div.button-back:hover{
-    cursor: pointer;
-}
-
-div.input-form{
-    display: flex;
-    flex-direction: column;
     gap: 10px;
-    color: var(--blue1);
-    font-weight: 500;
-    font-size: 16px;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 30px;
+        border-radius: 10px;
+        border: none;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        gap: 5px;
+    }
+
+    button.save {
+        background-color: #5856D6;
+        color: white;
+    }
+
+    button.save:hover {
+        background-color: #7371d4;
+        cursor: pointer;
+    }
+
+    button.save:active {
+        background-color: #5856D6;
+    }
+
+    button.cancel {
+        background-color: #d32f2f;
+        color: white;
+    }
+    button.cancel:hover {
+        background-color: #f44336;
+        cursor: pointer;
+    }
+    button.cancel:active {
+        background-color: #d32f2f;
+    }
 }
-
-input.input-name{
-    border: 1px solid #676B7380;
-    height: 40px;
-    width: -webkit-fill-available;
-    padding: 0 14px;
-    border-radius: 5px;
-    font-size: 14px;
-    outline-color: var(--blue1);
-}
-
-
-button.submit{
-    width: fit-content;
-    margin-top: 10px;
-    padding: 10px 20px;
-    border: none;
-    background-color: var(--blue1);
-    color: white;
-    font-weight: 500;
-    font-size: 16px;
-    border-radius: 3px;
-}
-button.submit:hover{
-    cursor: pointer;
-}
-
-div.subcategory{
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--blue1);
-    gap: 20px;
-}
-
-hr{
-    margin: 10px 0;
-    opacity: 0.6;
-}
-
-div.subcategory-form{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-
-
-
-
-/* The switch - the box around the slider */
-  .switch {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 54px;
-    height: 28px;
-  }
-
-
-/* Hide default HTML checkbox */
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  /* The slider */
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .0s;
-    transition: .0s;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .0s;
-    transition: .2s;
-  }
-
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-
-  .slider.round:before {
-    border-radius: 50%;
-  }
