@@ -11,7 +11,7 @@ const API = `${environment.baseApi}/category`;
 })
 export class CategoryService {
 
-    closeModal: EventEmitter<boolean> = new EventEmitter<boolean>();
+    refreshList: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor( private http: HttpClient ) { }
 
@@ -21,7 +21,7 @@ export class CategoryService {
 
     getCategories(data: any): Observable<ICategory[]>{
         return this.http.get<ICategory[]>(API, {
-            params: data
+            params: {...data}
         });
     }
 

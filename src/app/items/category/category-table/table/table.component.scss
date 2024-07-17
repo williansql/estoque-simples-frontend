@@ -5,6 +5,23 @@ main {
 
 table.category-table {
     width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    input {
+        max-width: 250px;
+        height: 40px;
+        outline-color: #5856D6;
+        border-radius: 5px;
+        padding-left: 12px;
+        font-size: 16px;
+        align-self: flex-end;
+        // box-shadow: inset 3px 3px 5px #333;
+        background-color: #272B31;
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.61);
+        }
+    }
 }
 
 section.header-table {
@@ -13,10 +30,12 @@ section.header-table {
 
     tr.header-table {
         flex: 1;
-        padding: 10px;
+        // padding: 10px;
         display: flex;
+        align-items: center;
         width: 100%;
-        background-color: #5856D6;
+        gap: 10px;
+        // background-color: #5856D6;
 
         th {
             color: white;
@@ -28,18 +47,27 @@ section.header-table {
             flex: 7;
             display: flex;
             justify-content: flex-start;
+            padding: 10px;
+            background-color: #5856D6;
+            border-radius: 10px;
         }
 
         th.category {
             flex: 6;
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
+            padding: 10px;
+            background-color: #5856D6;
+            border-radius: 10px;
         }
 
         th.options {
             flex: 3;
             display: flex;
             justify-content: center;
+            padding: 10px;
+            background-color: #5856D6;
+            border-radius: 10px;
         }
     }
 }
@@ -54,8 +82,6 @@ section.body-table {
         padding: 10px;
         display: flex;
         align-items: center;
-        width: 100%;
-
         td{
             color: white;
         }
@@ -69,7 +95,7 @@ section.body-table {
         td.category {
             flex: 6;
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
         }
 
         td.options {
@@ -94,4 +120,6 @@ section.body-table {
 
 .mat-mdc-paginator{
     margin-top: 20px;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.61);
 }

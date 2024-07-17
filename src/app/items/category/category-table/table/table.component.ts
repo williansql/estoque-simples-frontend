@@ -5,41 +5,64 @@ import { ICategory } from '../../icategory';
 import { CategoryService } from '../../category.service';
 import { ModalService } from '../../../../shared/components/modal/modal.service';
 import { CategoryUpdateComponent } from '../../category-update/category-update.component';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { debounceTime, map, Observable, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-table',
   standalone: true,
   imports: [
     CommonModule,
-    MaterialImportsModule
+    MaterialImportsModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
 export class TableComponent {
 
-    category: ICategory[] = [];
+    categoryForm: FormGroup
 
-    closeModal: boolean = false;
+    category: ICategory[] = [];
 
     categoryService = inject(CategoryService);
     modalService = inject(ModalService);
 
+    constructor(
+        private fb: FormBuilder,
+    ) {
+        this.categoryForm = this.fb.group({
+            name: [null]
+        });
+     }
+
+
     data = {
         size: 10,
-        page: 0
+        page: 0,
+        name: ''
     }
 
     ngOnInit(): void {
+
+        this.findCategory();
+
         this.getAllCategories();
 
-        if(this.closeModal){
-            this.modalService.close();
-        }
-
+        this.categoryService.refreshList.subscribe(() => {
+            this.getAllCategories();
+        })
     }
 
-    getAllCategories() {
+    findCategory(){
+        this.categoryForm.get('name')?.valueChanges.pipe(
+            debounceTime(500)).subscribe((req) => {
+                this.data.name = req;
+                this.getAllCategories(this.data);
+            })
+    }
+
+    getAllCategories(params?: any) {
         this.categoryService.getCategories(this.data).subscribe((data: any) => {
             this.category = data.data.content;
             console.log(this.category);

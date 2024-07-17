@@ -107,9 +107,15 @@ aside{
     height: 100%;
 }
 
+aside:hover{
+    transition: 0.2s;
+}
+
 aside:hover  ~ section.content-sidenav{
     margin-left: 250px;
     transition: 0.2s;
+    background-color: #000000;
+    opacity: 0.05;
 }
 
 div.separate-menu-sidenav{
@@ -135,4 +141,8 @@ section.content-sidenav{
     div.content-sidenav{
         margin: 50px;
     }
+}
+
+div.footer{
+    flex: 1;
 }

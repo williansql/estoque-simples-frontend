@@ -49,6 +49,7 @@ export class CategoryUpdateComponent {
             this.modalService.close();
             this.router.navigate(['/category']);
             this.toastr.success(data.message);
+            this.categoryService.refreshList.emit(true);
         },
         (error) => {
             this.toastr.error(error.error.message);

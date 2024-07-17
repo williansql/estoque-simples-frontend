@@ -47,6 +47,7 @@ export class CategoryCreateComponent {
             this.toastr.success(data.message);
             this.categoryForm.reset();
             this.router.navigate(['/category'])
+            this.categoryService.refreshList.emit(true);
 
         },
         (error) => {

@@ -1,5 +1,9 @@
 <main>
-    <table class="category-table">
+    <table [formGroup]="categoryForm" class="category-table">
+        <input
+            type="text"
+            placeholder="Pesquisar categoria"
+            formControlName="name">
         <section class="header-table">
             <tr class="header-table" >
                 <th class="name" >Categoria</th>
