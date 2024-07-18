@@ -3,12 +3,14 @@ main{
     height: 100%;
 }
 
-div.menu {
+section.menu {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100px;
+    animation: ease-out 0.2s;
     transition: 0.2s;
+    
     div.logo {
         margin: 50px 0;
         display: flex;
@@ -49,9 +51,11 @@ div.menu {
         }
     }
 }
-div.menu:hover{
+section.menu:hover{
     width: 250px;
+    animation: ease-in 0.2s;
     transition: 0.2s;
+    background-color: #1b1d22;
     div.logo{
         margin: 50px 0;
         display: flex;
@@ -105,9 +109,6 @@ aside{
     display: flex;
     position: fixed;
     height: 100%;
-}
-
-aside:hover{
     transition: 0.2s;
 }
 

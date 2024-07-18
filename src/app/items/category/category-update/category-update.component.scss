@@ -11,13 +11,19 @@ form.card-update-category {
     width: 100%;
 
     input {
-        width: 100%;
-        height: 50px;
+        max-width: 250px;
+        height: 40px;
         outline-color: #5856D6;
-        border-radius: 5px;
+        border-radius: 20px;
         padding-left: 12px;
         font-size: 16px;
-        border: solid 1px #272B31;
+        color: rgba($color: #ffffff, $alpha: 0.61);
+        align-self: flex-end;
+        // box-shadow: inset 3px 3px 5px #333;
+        background-color: #272B31;
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.61);
+        }
     }
 }
 

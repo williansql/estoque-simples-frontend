@@ -1,7 +1,7 @@
 div.container{
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: -webkit-fill-available;
     height: 50px;
     display: flex;
     align-items: center;

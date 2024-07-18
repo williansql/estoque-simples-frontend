@@ -1,42 +1,42 @@
 <main>
     <aside>
-        <div class="menu">
-            <div class="logo">
-                <img src="assets\logo\logo.svg" alt="Logo">
-                <div class="title-logo">
-                    <span>Estoque</span>
-                    <span>Simples</span>
+        <section class="menu">
+                <div class="logo">
+                    <img src="assets\logo\logo.svg" alt="Logo">
+                    <div class="title-logo">
+                        <span>Estoque</span>
+                        <span>Simples</span>
+                    </div>
                 </div>
-            </div>
-            <div class="side-menu" >
-                <div class="menu-list"
-                    [routerLink]="'/category'"
-                >
-                    <i class="material-icons menu-icon">category</i>
-                    <span class="menu-text" >CATEGORIAS</span>
+                <div class="side-menu" >
+                    <div class="menu-list"
+                        [routerLink]="'/category'"
+                    >
+                        <i class="material-icons menu-icon">category</i>
+                        <span class="menu-text" >CATEGORIAS</span>
+                    </div>
+                    <div class="menu-list">
+                        <i class="material-icons menu-icon">trolley</i>
+                        <span class="menu-text" >ITENS</span>
+                    </div>
+                    <div class="menu-list">
+                        <i class="material-icons menu-icon">download</i>
+                        <span class="menu-text" >ENTRADA</span>
+                    </div>
+                    <div class="menu-list">
+                        <i class="material-icons menu-icon">upload</i>
+                        <span class="menu-text" >SAÍDA</span>
+                    </div>
                 </div>
-                <div class="menu-list">
-                    <i class="material-icons menu-icon">trolley</i>
-                    <span class="menu-text" >ITENS</span>
-                </div>
-                <div class="menu-list">
-                    <i class="material-icons menu-icon">download</i>
-                    <span class="menu-text" >ENTRADA</span>
-                </div>
-                <div class="menu-list">
-                    <i class="material-icons menu-icon">upload</i>
-                    <span class="menu-text" >SAÍDA</span>
-                </div>
-            </div>
-        </div>
-         <div class="separate-menu-sidenav" ></div>
+        </section>
+        <div class="separate-menu-sidenav"></div>
     </aside>
     <section class="content-sidenav">
         <div class="content-sidenav">
             <router-outlet></router-outlet>
-            <div class="footer">
-                <app-footer></app-footer>
-            </div>
+        </div>
+        <div class="footer">
+            <app-footer></app-footer>
         </div>
     </section>
 </main>

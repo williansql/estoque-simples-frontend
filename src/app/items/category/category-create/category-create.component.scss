@@ -18,11 +18,18 @@ section {
         gap: 20px;
 
         input {
-            height: 50px;
+            width: 300px;
+            height: 40px;
             outline-color: #5856D6;
-            border-radius: 5px;
-            padding-left: 12px;
+            border-radius: 20px;
+            padding-left: 20px;
             font-size: 16px;
+            align-self: flex-end;
+            border: solid 1px rgba($color: #ffffff, $alpha: 0.10);
+            background-color: #272B31;
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.61);
+            }
         }
     }
 }
@@ -30,7 +37,6 @@ section {
 .buttons {
     display: flex;
     gap: 10px;
-
     button {
         display: flex;
         align-items: center;
@@ -43,7 +49,6 @@ section {
         letter-spacing: 0.5px;
         gap: 5px;
     }
-
     button.save {
         background-color: #5856D6;
         color: white;
