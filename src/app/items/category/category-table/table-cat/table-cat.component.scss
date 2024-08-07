@@ -9,7 +9,7 @@ table.category-table {
     flex-direction: column;
     gap: 20px;
     input {
-        width: 300px;
+        width: 300PX;
         height: 40px;
         outline-color: #5856D6;
         border-radius: 20px;
@@ -18,6 +18,7 @@ table.category-table {
         align-self: flex-end;
         border: solid 1px rgba($color: #ffffff, $alpha: 0.10);
         background-color: #272B31;
+        color: #ffffff;
         &::placeholder {
             color: rgba(255, 255, 255, 0.61);
         }
@@ -32,9 +33,13 @@ section.header-table {
         display: flex;
         align-items: center;
         width: 100%;
+        background-color: #5856D6;
+        border-radius: 20px;
+        color: #2e2d81;
+        text-shadow: 1px 1px 0 #000000;
         gap: 10px;
         th {
-            color: white;
+            color: #dfdfdf;
             font-size: 16px;
             font-weight: 500;
         }
@@ -43,7 +48,7 @@ section.header-table {
             display: flex;
             justify-content: flex-start;
             padding: 10px;
-            background-color: #5856D6;
+
             border-radius: 20px;
         }
         th.category {
@@ -58,6 +63,7 @@ section.header-table {
             flex: 3;
             display: flex;
             justify-content: center;
+            align-items: center;
             padding: 10px;
             background-color: #5856D6;
             border-radius: 20px;
@@ -94,6 +100,7 @@ section.body-table {
             flex: 3;
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 20px;
             i.edit{
                 color: #02c39a;

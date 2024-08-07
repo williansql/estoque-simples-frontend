@@ -5,17 +5,19 @@
 </app-subheader>
 <main>
     <section>
-        <div [formGroup]="categoryForm" class="card-create-category">
+        <form [formGroup]="categoryForm" class="card-create-category">
             <span class="input-name-category">Nome da categoria</span>
-            <input formControlName="name" class="input-name-category" type="text" placeholder="Nome da categoria">
+            <div class="input-name-category">
+                <input formControlName="name" class="input-name-category" type="text" placeholder="Nome da categoria">
+            </div>
             <div class="buttons">
                 <button (click)="createCategory()" class="save">
                     <span>SALVAR</span>
                 </button>
-                <button [routerLink]="'/category'" class="cancel">
+                <button type="button" [routerLink]="'/category'" class="cancel">
                     <span>CANCELAR</span>
                 </button>
             </div>
-        </div>
+        </form>
     </section>
 </main>

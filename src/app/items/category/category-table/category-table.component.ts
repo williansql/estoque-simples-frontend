@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { MaterialImportsModule } from '../../../shared/modules/material-imports/material-imports.module';
 import { SubheaderComponent } from '../../../shared/components/subheader/subheader.component';
 import { SubheaderService } from '../../../shared/components/subheader/subheader.service';
-import { TableComponent } from './table/table.component';
+import { TableCatComponent } from './table-cat/table-cat.component';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
     CommonModule,
     MaterialImportsModule,
     SubheaderComponent,
-    TableComponent,
+    TableCatComponent,
     RouterLink
   ],
   templateUrl: './category-table.component.html',

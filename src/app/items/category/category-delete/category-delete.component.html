@@ -1,0 +1,12 @@
+<app-subheader
+    [subheader]="{title: 'Categoria', subtitle: 'Deletar categoria'}"></app-subheader>
+<main>
+    <div class="card-update-category">
+        <span class="alert-delete-category">Tem certeza que deseja excluir esta categoria?</span>
+        <span class="delete-category-name">{{ category?.name | uppercase }}</span>
+    </div>
+    <div class="buttons">
+        <button (click)="deleteCategory()" class="save" >DELETAR</button>
+        <button (click)="closeModal()" class="cancel" >CANCELAR</button>
+    </div>
+</main>

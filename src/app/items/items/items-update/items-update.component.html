@@ -1,0 +1,71 @@
+<app-subheader [subheader]="{
+    title: 'Items',
+    subtitle: 'Crie um novo item'}">
+</app-subheader>
+<div class="container-items-update">
+<div [formGroup]="itemsForm" (ngSubmit)="createItem()" class="card-create-items-update">
+    <div class="input-name-items-update">
+        <div class="info-item-update">
+            <span class="input-name-items-update">Informações do item</span>
+            <div class="info-item-A-update">
+                <input formControlName="coditem" class="input-name-items-coditem-update" type="text"
+                    placeholder="Código do Item">
+                <input formControlName="name" class="input-name-items-name-update" type="text" placeholder="Nome do item">
+                <input formControlName="model" class="input-name-items-model-update" type="text" placeholder="Modelo">
+            </div>
+            <div class="info-item-B-update">
+                <input formControlName="description" class="input-name-items-description-update" type="text"
+                    placeholder="Descrição">
+                <input formControlName="sku" class="input-name-items-sku-update" type="text"
+                    placeholder="Código de barras">
+            </div>
+            <div class="info-item-C-update">
+                <input formControlName="unitMeasureEnum" class="input-name-items-unitmeasure-update" type="text"
+                    placeholder="Unid. medida" [matAutocomplete]="autoUnit">
+                    <mat-autocomplete #autoUnit="matAutocomplete" >
+                        @for (unit of unitMeasureOption | async; track $index) {
+                            <mat-option [value]="unit">{{ unit }}</mat-option>
+                        }
+                    </mat-autocomplete>
+                <div class="measure-update">
+                    <span>peso/quantidade:</span>
+                    <input [suffix]="this.itemsForm.value.unitMeasureEnum" mask="separator.2" thousandSeparator="."
+                        formControlName="unitMeasureQtd" class="input-name-items-unitqtd-update" type="text"
+                        placeholder="0.000">
+                </div>
+                <input formControlName="branding" class="input-name-items-branding-update" type="text" placeholder="Marca">
+            </div>
+            <span class="input-name-items-update">Preços</span>
+            <div class="prices-update">
+                <input prefix="R$" mask="separator.2" thousandSeparator="." formControlName="buyPrice"
+                    class="input-name-items-buyprice-update" type="text" placeholder="Preço de compra">
+                <input prefix="R$" mask="separator.2" thousandSeparator="." formControlName="sellPrice"
+                    class="input-name-items-sellprice-update" type="text" placeholder="Preço de venda">
+                <span class="input-name-items-update"> Lucro {{ getProfit() }} </span>
+            </div>
+            <span class="input-name-items-update">Selecione a categoria</span>
+            <div class="select-category-update">
+                <input
+                    formControlName="category"
+                    [matAutocomplete]="autoCategory"
+                    class="input-name-items-selectcategory-update"
+                    type="text"
+                    placeholder="Selecione a categoria">
+                <mat-autocomplete #autoCategory="matAutocomplete"  >
+                    @for (category of categoryOption | async; track $index) {
+                        <mat-option [value]="category.name">{{ category.name }}</mat-option>
+                    }
+                </mat-autocomplete>
+            </div>
+        </div>
+    </div>
+    <div class="buttons-update">
+        <button (click)="createItem()" class="save-update">
+            <span>SALVAR</span>
+        </button>
+        <button [routerLink]="'/items'" class="cancel-update">
+            <span>CANCELAR</span>
+        </button>
+    </div>
+</div>
+</div>

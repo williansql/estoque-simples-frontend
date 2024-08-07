@@ -1,0 +1,31 @@
+
+section.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+div.info-items-line{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div.info-items-a, div.info-items-b, div.info-items-c{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+span.info-items-a{
+    color: #5856D6;
+    font-size: 14px;
+}
+
+span.info-items-b{
+    color: #dfdfdf;
+    font-size: 14px;
+}
+

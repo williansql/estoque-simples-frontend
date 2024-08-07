@@ -10,7 +10,7 @@ section.menu {
     width: 100px;
     animation: ease-out 0.2s;
     transition: 0.2s;
-    
+
     div.logo {
         margin: 50px 0;
         display: flex;
@@ -30,7 +30,7 @@ section.menu {
     div.side-menu{
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 40px;
         div.menu-list{
             height: 40px;
             display: flex;
@@ -47,6 +47,7 @@ section.menu {
                 transition: 0.2s;
                 font-size: 40px;
                 color: #5856D6;
+                padding: 5px;
             }
         }
     }
@@ -84,7 +85,7 @@ section.menu:hover{
             justify-content: flex-start;
             gap: 5px;
             i.menu-icon{
-                padding-left: 20px;
+                margin-left: 20px;
                 transition: 0.2s;
                 font-size: 25px;
                 color: #5856D6;

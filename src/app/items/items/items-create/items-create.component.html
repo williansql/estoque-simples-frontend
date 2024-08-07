@@ -1,0 +1,71 @@
+<app-subheader [subheader]="{
+        title: 'Itens',
+        subtitle: 'Edite o seu item'}">
+</app-subheader>
+<div class="container-items">
+    <div [formGroup]="itemsForm" (ngSubmit)="createItem()" class="card-create-items">
+        <div class="input-name-items">
+            <div class="info-item">
+                <span class="input-name-items">Informações do item</span>
+                <div class="info-item-A">
+                    <input formControlName="coditem" class="input-name-items-coditem" type="text"
+                        placeholder="Código do Item">
+                    <input formControlName="name" class="input-name-items-name" type="text" placeholder="Nome do item">
+                    <input formControlName="model" class="input-name-items-model" type="text" placeholder="Modelo">
+                </div>
+                <div class="info-item-B">
+                    <input formControlName="description" class="input-name-items-description" type="text"
+                        placeholder="Descrição">
+                    <input formControlName="sku" class="input-name-items-sku" type="text"
+                        placeholder="Código de barras">
+                </div>
+                <div class="info-item-C">
+                    <input formControlName="unitMeasureEnum" class="input-name-items-unitmeasure" type="text"
+                        placeholder="Unid. medida" [matAutocomplete]="autoUnit">
+                        <mat-autocomplete #autoUnit="matAutocomplete" >
+                            @for (unit of unitMeasureOption | async; track $index) {
+                                <mat-option [value]="unit">{{ unit }}</mat-option>
+                            }
+                        </mat-autocomplete>
+                    <div class="measure">
+                        <span>peso/quantidade:</span>
+                        <input [suffix]="this.itemsForm.value.unitMeasureEnum" mask="separator.2" thousandSeparator="."
+                            formControlName="unitMeasureQtd" class="input-name-items-unitqtd" type="text"
+                            placeholder="0.000">
+                    </div>
+                    <input formControlName="branding" class="input-name-items-branding" type="text" placeholder="Marca">
+                </div>
+                <span class="input-name-items">Preços</span>
+                <div class="prices">
+                    <input prefix="R$" mask="separator.2" thousandSeparator="." formControlName="buyPrice"
+                        class="input-name-items-buyprice" type="text" placeholder="Preço de compra">
+                    <input prefix="R$" mask="separator.2" thousandSeparator="." formControlName="sellPrice"
+                        class="input-name-items-sellprice" type="text" placeholder="Preço de venda">
+                    <span class="input-name-items"> Lucro {{ getProfit() }} </span>
+                </div>
+                <span class="input-name-items">Selecione a categoria</span>
+                <div class="select-category">
+                    <input
+                        formControlName="category"
+                        [matAutocomplete]="autoCategory"
+                        class="input-name-items-selectcategory"
+                        type="text"
+                        placeholder="Selecione a categoria">
+                    <mat-autocomplete #autoCategory="matAutocomplete"  >
+                        @for (category of categoryOption | async; track $index) {
+                            <mat-option [value]="category.name">{{ category.name }}</mat-option>
+                        }
+                    </mat-autocomplete>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button (click)="createItem()" class="save">
+                <span>SALVAR</span>
+            </button>
+            <button [routerLink]="'/items'" class="cancel">
+                <span>CANCELAR</span>
+            </button>
+        </div>
+    </div>
+</div>

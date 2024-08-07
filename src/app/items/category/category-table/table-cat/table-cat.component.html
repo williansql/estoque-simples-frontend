@@ -1,0 +1,33 @@
+<main>
+    <table [formGroup]="categoryForm" class="category-table">
+        <input type="text" placeholder="Pesquisar categoria" formControlName="name">
+        <section class="header-table">
+            <tr class="header-table">
+                <th class="name">Categoria</th>
+                <!-- <th class="category">Categoria pai</th> -->
+                <th class="options">Opções</th>
+            </tr>
+        </section>
+        <section class="body-table">
+            @for (category of category; track $index) {
+            <tr class="body-table">
+                <td class="name">{{ category.name | titlecase }}</td>
+                <!-- <td class="category"> {{ 'Nenhuma' }} </td> -->
+                <td class="options">
+                    <i (click)="editCategoryModal($index)" class="material-icons edit">
+                        edit
+                    </i>
+                    <i (click)="deleteCategory($index)" class="material-icons delete">delete</i>
+                </td>
+            </tr>
+            }
+        </section>
+        <mat-paginator
+            (page)="this.handlePageEvent($event)"
+            [length]="pagination.totalNumberOfElements"
+            [pageSize]="pagination.size"
+            [pageSizeOptions]="[5, 15, 30]"
+            aria-label="Selecione a página"
+            showFirstLastButtons></mat-paginator>
+    </table>
+</main>

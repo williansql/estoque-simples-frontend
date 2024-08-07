@@ -7,6 +7,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
 import { CategoryCreateComponent } from './items/category/category-create/category-create.component';
 import { CategoryUpdateComponent } from './items/category/category-update/category-update.component';
+import { DetectQueerComponent } from './detect-queer/detect-queer.component';
+import { ExpandTableComponent } from './items/items/items-table/expand-table/expand-table.component';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +22,8 @@ import { CategoryUpdateComponent } from './items/category/category-update/catego
     RouterOutlet,
     CategoryCreateComponent,
     CategoryUpdateComponent,
+    DetectQueerComponent,
+    ExpandTableComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

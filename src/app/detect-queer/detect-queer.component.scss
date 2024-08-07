@@ -1,0 +1,118 @@
+div.subheader{
+    width: -webkit-fill-available;
+    padding: 30px;
+}
+
+div.container {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+div.name-bicha {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    border-radius: 20px;
+    gap: 15px;
+    background-color: #5856D6;
+    padding: 15px;
+}
+
+span.title {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    text-shadow: #7371d4 2px 2px 0px;
+}
+
+span.subtitle {
+    font-size: 14px;
+    color: yellow;
+    text-shadow: yellowgreen 2px 2px 5px;
+}
+
+div.tipo-gay {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+}
+
+span.input-gay {
+    color: white;
+    font-size: 14px;
+}
+
+input.input-gay {
+    width: 300PX;
+    height: 40px;
+    outline-color: #5856D6;
+    border-radius: 20px;
+    padding-left: 20px;
+    font-size: 16px;
+    align-self: flex-end;
+    border: solid 1px rgba($color: #ffffff, $alpha: 0.10);
+    background-color: #272B31;
+    color: #ffffff;
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.61);
+    }
+}
+
+div.btn-gay {
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 30px;
+        border-radius: 10px;
+        border: none;
+        background-color: #d32f2f;
+        box-shadow: 3px 3px 0 #a11a1a;
+        top: 0;
+        left: 0;
+        color: white;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        gap: 5px;
+        transform: scale(1);
+    }
+
+    button:hover {
+        position: relative;
+        top: 2px;
+        left: 2px;
+        background-color: #d32f2f;
+        box-shadow: 0 0 0 #2e0707;
+        cursor: pointer;
+        box-shadow: inset -1px -1px 0 #9e1616;
+    }
+
+    button:active {
+        background-color: #d32f2f;
+    }
+}
+
+div.resultado {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    p{
+        color: palevioletred;
+        font-size: 18px;
+    }
+}

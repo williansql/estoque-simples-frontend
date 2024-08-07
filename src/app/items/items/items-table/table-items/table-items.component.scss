@@ -1,0 +1,210 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+table.items-table {
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    input {
+        width: 300px;
+        height: 40px;
+        outline-color: #5856D6;
+        border-radius: 20px;
+        padding-left: 20px;
+        font-size: 16px;
+        align-self: flex-end;
+        border: solid 1px rgba($color: #ffffff, $alpha: 0.10);
+        background-color: #272B31;
+        color: #ffffff;
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.61);
+        }
+    }
+}
+
+section.header-table-item{
+    display: flex;
+    background-color: #5856D6;
+    border-radius: 20px;
+}
+
+section.body-table-item{
+    display: flex;
+    flex-direction: column;
+}
+
+tr.header-table-item{
+    text-shadow: 1px 1px 0 black;
+    color: #dfdfdf;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+tr.header-table-item, tr.body-table-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+td{
+    color: #dfdfdf;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+th.name-item, td.name-item{
+    flex: 5;
+    display: flex;
+    justify-content: flex-start;
+}
+
+th.model-item, td.model-item{
+    flex: 5;
+    display: flex;
+    justify-content: center;
+}
+
+th.qtd-item, td.qtd-item{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+th.options-item, td.options-item{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    i.edit-item{
+        cursor: pointer;
+        color: #02C39A;
+    }
+    i.delete-item{
+        cursor: pointer;
+        color: #d32f2f;
+    }
+}
+
+th.expand-item, td.expand-item{
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    i{
+        cursor: pointer;
+    }
+}
+
+div.expand-table{
+    flex: 1;
+    padding: 30px;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    box-shadow: inset 2px 2px 5px 2px rgba($color: #000000, $alpha: 0.2);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+div.expand-table-hidden{
+    display: none;
+}
+
+@-webkit-keyframes expand-table-hidden {
+	0% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+		-webkit-transform-origin: 100% 0%;
+		transform-origin: 100% 0%;
+		opacity: 1;
+	}
+
+	100% {
+		-webkit-transform: scaleY(0);
+		transform: scaleY(0);
+		-webkit-transform-origin: 100% 0%;
+		transform-origin: 100% 0%;
+		opacity: 0;
+		transition: 0.02s;
+	}
+}
+
+@keyframes expand-table-hidden {
+	0% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+		-webkit-transform-origin: 100% 0%;
+		transform-origin: 100% 0%;
+		opacity: 1;
+	}
+
+	100% {
+		-webkit-transform: scaleY(0);
+		transform: scaleY(0);
+		-webkit-transform-origin: 100% 0%;
+		transform-origin: 100% 0%;
+		opacity: 0;
+		transition: 0.02s;
+		display: none;
+	}
+}
+
+.expand-table {
+	-webkit-animation: scale-in-ver-top 0.1s
+		cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	animation: scale-in-ver-top 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes expand-table {
+	0% {
+		-webkit-transform: scaleY(0);
+		transform: scaleY(0);
+		-webkit-transform-origin: 100% 0%;
+		transform-origin: 100% 0%;
+		opacity: 1;
+		display: none;
+	}
+
+	100% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+		-webkit-transform-origin: 100% 0%;
+		transform-origin: 100% 0%;
+		opacity: 1;
+	}
+}
+
+@keyframes scale-in-ver-top {
+	0% {
+		-webkit-transform: scaleY(0);
+		transform: scaleY(0);
+		-webkit-transform-origin: 100% 0%;
+		transform-origin: 100% 0%;
+		opacity: 1;
+		display: none;
+	}
+
+	100% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+		-webkit-transform-origin: 100% 0%;
+		transform-origin: 100% 0%;
+		opacity: 1;
+	}
+}
+
+tr.body-table-item:hover {
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    border-radius: 20px;
+}
+
+
+.mat-mdc-paginator {
+    margin-top: 20px;
+    border-top: solid 1px rgba($color: #ffffff, $alpha: 0.10);
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.61);
+}

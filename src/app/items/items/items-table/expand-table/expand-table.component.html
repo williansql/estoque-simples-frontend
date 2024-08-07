@@ -1,0 +1,68 @@
+<section class="container" >
+    <div class="info-items-line">
+        <div class="info-items-a">
+            <span class="info-items-a">Cod. Item</span>
+            <span class="info-items-b">{{codItem}}</span>
+        </div>
+        <div class="info-items-b">
+            <span class="info-items-a">Categoria</span>
+            <span class="info-items-b"> {{ category }} </span>
+        </div>
+        <div class="info-items-c">
+            <span class="info-items-a">Descrição</span>
+            <span class="info-items-b"> {{ description }} </span>
+        </div>
+    </div>
+    <div class="info-items-line">
+        <div class="info-items-a">
+            <span class="info-items-a">Cod. Barras</span>
+            <span class="info-items-b"> {{ sku }} </span>
+        </div>
+        <div class="info-items-b">
+            <span class="info-items-a">Un. Medida</span>
+            <span class="info-items-b"> {{ unitMeasureQtd + ' ' + unitMeasureEnum }} </span>
+        </div>
+        <div class="info-items-c">
+            <span class="info-items-a">Marca</span>
+            <span class="info-items-b"> {{ branding }} </span>
+        </div>
+    </div>
+    <div class="info-items-line">
+        <div class="info-items-a">
+            <span class="info-items-a">Data Valid.</span>
+            <span class="info-items-b"> {{ 'Não informado' }} </span>
+        </div>
+        <div class="info-items-b">
+            <span class="info-items-a">Data Fabric.</span>
+            <span class="info-items-b"> {{ 'Não informado' }} </span>
+        </div>
+        <div class="info-items-c">
+            <span class="info-items-a">Fornecedor</span>
+            <span class="info-items-b"> {{ 'Não informado' }} </span>
+        </div>
+    </div>
+    <div class="info-items-line">
+        <div class="info-items-a">
+            <span class="info-items-a">Preço compra $</span>
+            <span class="info-items-b"> {{ buyPrice }} </span>
+        </div>
+        <div class="info-items-b">
+            <span class="info-items-a">Preço venda $</span>
+            <span class="info-items-b"> {{ sellPrice }} </span>
+        </div>
+        <div class="info-items-c">
+            <span class="info-items-a">Lucro %</span>
+            <span class="info-items-b"> {{ profit }} </span>
+        </div>
+    </div>
+    <div class="info-items-line">
+        <div class="info-items-a">
+            <span class="info-items-a">Nome Entregador</span>
+            <span class="info-items-b"> {{'Não informado'}} </span>
+        </div>
+        <div class="info-items-b">
+            <span class="info-items-a">Documento Entregador</span>
+            <span class="info-items-b"> {{'Não informado'}} </span>
+        </div>
+    </div>
+</section>

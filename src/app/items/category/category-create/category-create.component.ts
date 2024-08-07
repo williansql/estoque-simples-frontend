@@ -6,7 +6,6 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CategoryService } from '../category.service';
 import { ToastrService } from 'ngx-toastr';
-import { SubheaderService } from '../../../shared/components/subheader/subheader.service';
 
 @Component({
     selector: 'app-category-create',

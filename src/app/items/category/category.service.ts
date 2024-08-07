@@ -19,7 +19,7 @@ export class CategoryService {
         return this.http.post<ICategory>(API, data);
     }
 
-    getCategories(data: any): Observable<ICategory[]>{
+    getCategories(data?: any): Observable<ICategory[]>{
         return this.http.get<ICategory[]>(API, {
             params: {...data}
         });

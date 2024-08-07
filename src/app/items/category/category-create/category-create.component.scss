@@ -5,7 +5,7 @@ main {
 }
 
 section {
-    div.card-create-category {
+    form.card-create-category {
         display: flex;
         flex-direction: column;
         background-color: rgba($color: #000000, $alpha: 0.2);
@@ -17,26 +17,34 @@ section {
         border-radius: 20px;
         gap: 20px;
 
-        input {
-            width: 300px;
-            height: 40px;
-            outline-color: #5856D6;
-            border-radius: 20px;
-            padding-left: 20px;
-            font-size: 16px;
-            align-self: flex-end;
-            border: solid 1px rgba($color: #ffffff, $alpha: 0.10);
-            background-color: #272B31;
-            &::placeholder {
-                color: rgba(255, 255, 255, 0.61);
+        div.input-name-category {
+            width: 100%;
+
+            input {
+                width: -webkit-fill-available;
+                height: 40px;
+                outline-color: #5856D6;
+                border-radius: 20px;
+                padding-left: 20px;
+                font-size: 16px;
+                align-self: flex-end;
+                border: solid 1px rgba($color: #ffffff, $alpha: 0.10);
+                background-color: #272B31;
+                color: #ffffff;
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.61);
+                }
             }
         }
+
+
     }
 }
 
 .buttons {
     display: flex;
     gap: 10px;
+
     button {
         display: flex;
         align-items: center;
@@ -49,6 +57,7 @@ section {
         letter-spacing: 0.5px;
         gap: 5px;
     }
+
     button.save {
         background-color: #5856D6;
         color: white;
@@ -67,10 +76,12 @@ section {
         background-color: #d32f2f;
         color: white;
     }
+
     button.cancel:hover {
         background-color: #f44336;
         cursor: pointer;
     }
+
     button.cancel:active {
         background-color: #d32f2f;
     }

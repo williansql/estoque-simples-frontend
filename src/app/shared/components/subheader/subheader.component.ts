@@ -1,10 +1,16 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ViewEncapsulation } from '@angular/core';
 import { SubheaderService } from './subheader.service';
+import { MaterialImportsModule } from '../../modules/material-imports/material-imports.module';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-subheader',
   standalone: true,
-  imports: [],
+  imports: [
+    MaterialImportsModule,
+    UpperCasePipe
+  ],
+  encapsulation: ViewEncapsulation.None,
   templateUrl: './subheader.component.html',
   styleUrl: './subheader.component.scss'
 })

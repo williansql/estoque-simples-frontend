@@ -39,9 +39,8 @@
 
 .modal-body {
     overflow: auto;
-    max-height: 50rem;
+    max-height: 70%;
     position: relative;
-    background-color: var(--white);
     max-width: 800px;
     min-width: 200px;
     z-index: 900;
@@ -51,6 +50,8 @@
     display: flex;
     flex-direction: column;
     background-color: var(--bg);
+    border: solid 1px #191B1F;
+    box-shadow: inset 2px 2px 8px 4px rgba(0, 0, 0, 0.5);
 
     .modal-header {
         display: flex;

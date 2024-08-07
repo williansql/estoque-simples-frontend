@@ -1,0 +1,19 @@
+<app-subheader [subheader]="{
+    title: 'Itens',
+    subtitle: 'Veja aqui seus itens'}">
+</app-subheader>
+<main>
+    <section>
+        <div class="buttons">
+            <button [routerLink]="'/items/create'">
+                <i class="material-icons">add</i>
+                <span>ITENS</span>
+            </button>
+        </div>
+    </section>
+    <section class="table-items" >
+        <div class="table-items">
+            <app-table-items></app-table-items>
+        </div>
+    </section>
+</main>

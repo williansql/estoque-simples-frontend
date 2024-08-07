@@ -1,0 +1,174 @@
+div.container-items-update {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column
+}
+
+div.card-create-items-update {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    color: #5856D6;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 30px;
+    border-radius: 20px;
+    gap: 20px;
+    margin-bottom: 100px;
+
+    input {
+        width: -webkit-fill-available;
+        height: 40px;
+        outline-color: #5856D6;
+        border-radius: 20px;
+        padding-left: 20px;
+        font-size: 16px;
+        align-self: flex-end;
+        border: solid 1px rgba($color: #ffffff, $alpha: 0.10);
+        background-color: #272B31;
+        color: #ffffff;
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.61);
+        }
+    }
+}
+
+div.info-item-A-update {
+    display: flex;
+    gap: 20px;
+    .input-name-items-coditem-update {
+        flex: 1;
+    }
+
+    .input-name-items-name-update {
+        flex: 10;
+    }
+
+    .input-name-items-model-update {
+        flex: 10;
+    }
+}
+
+div.info-item-B-update {
+    display: flex;
+    gap: 20px;
+    .input-name-items-description-update {
+        flex: 1;
+    }
+
+    .input-name-items-sku-update {
+        flex: 1;
+    }
+}
+
+div.info-item-C-update {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    .input-name-items-unitmeasure-update {
+        width: 150px;
+    }
+
+    div.measure-update {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        span {
+            flex: 1;
+            font-size: 12px;
+            color: #ffffff;
+        }
+
+        .input-name-items-unitqtd-update {
+            width: 100px;
+        }
+    }
+
+    .input-name-items-branding-update {
+        flex: 20;
+    }
+}
+
+div.prices-update {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .input-name-items-sellprice-update {
+        flex: 2;
+    }
+
+    .input-name-items-buyprice-update {
+        flex: 2;
+    }
+    span.input-name-items-update {
+        padding: 13px;
+        flex: 1;
+        background-color: rgba($color: #000000, $alpha: 0.4);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+div.info-item-update {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    div.info-item-A-update,
+    div.info-item-B-update,
+    div.info-item-C-update {
+        display: flex;
+        gap: 20px;
+    }
+}
+
+.buttons-update {
+    display: flex;
+    gap: 10px;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 30px;
+        border-radius: 10px;
+        border: none;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        gap: 5px;
+    }
+
+    button.save-update {
+        background-color: #5856D6;
+        color: white;
+    }
+
+    button.save-update:hover {
+        background-color: #7371d4;
+        cursor: pointer;
+    }
+
+    button.save-update:active {
+        background-color: #5856D6;
+    }
+
+    button.cancel-update {
+        background-color: #d32f2f;
+        color: white;
+    }
+
+    button.cancel-update:hover {
+        background-color: #f44336;
+        cursor: pointer;
+    }
+
+    button.cancel-update:active {
+        background-color: #d32f2f;
+    }
+}

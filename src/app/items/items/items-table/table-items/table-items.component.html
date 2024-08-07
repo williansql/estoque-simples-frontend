@@ -1,0 +1,62 @@
+<main>
+    <table [formGroup]="itemsForm" class="items-table">
+        <input class="input-search-item" type="text" placeholder="Pesquisar items" formControlName="name">
+        <section class="header-table-item">
+            <tr class="header-table-item">
+                <th class="name-item">Itens</th>
+                <th class="model-item">Modelo</th>
+                <th class="qtd-item">Qtd</th>
+                <th class="options-item">Opções</th>
+                <th class="expand-item">expandir</th>
+            </tr>
+        </section>
+        <section class="body-table-item">
+            @for (items of items; track $index) {
+            <tr [style]="expandItems == $index
+                    ? 'background-color: #191B1F; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;'
+                    : ''"
+                class="body-table-item">
+                <td class="name-item">{{ items.name | titlecase }}</td>
+                <td class="model-item"> {{ items.model }} </td>
+                <td class="qtd-item">{{ items.qtd }}</td>
+                <td class="options-item">
+                    <i (click)="openModalUpdateItems($index)" class="material-icons edit-item">
+                        edit
+                    </i>
+                    <i (click)="deleteItem($index)" class="material-icons delete-item">delete</i>
+                </td>
+                <td class="expand-item">
+                    @if (this.expandItems == $index) {
+                        <i (click)="showInfoItems($index)" class="material-icons"> keyboard_arrow_up </i>
+                    } @else {
+                        <i (click)="showInfoItems($index)" class="material-icons"> keyboard_arrow_down </i>
+                    }
+                </td>
+            </tr>
+                @if (this.expandItems == $index) {
+                    <div class="expand-table">
+                        <app-expand-table
+                            [codItem]="items.codItem"
+                            [name]="items.name"
+                            [category]="items.category"
+                            [model]="items.model"
+                            [branding]="items.branding"
+                            [description]="items.description"
+                            [buyPrice]="items.buyPrice"
+                            [sellPrice]="items.sellPrice"
+                            [sku]="items.sku"
+                            [unitMeasureEnum]="items.unitMeasureEnum"
+                            [unitMeasureQtd]="items.unitMeasureQtd"
+                            [qtd]="items.qtd"
+                            [profit]="getProfit($index)">
+                        </app-expand-table>
+                    </div>
+                }
+            }
+        </section>
+        <mat-paginator (page)="this.handlePageEvent($event)" [length]="pagination.totalNumberOfElements"
+            [pageSize]="pagination.size" [pageSizeOptions]="[5, 15, 30]" aria-label="Selecione a página"
+            showFirstLastButtons>
+        </mat-paginator>
+    </table>
+</main>

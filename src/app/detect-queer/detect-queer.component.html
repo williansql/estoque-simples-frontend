@@ -1,0 +1,27 @@
+<div class="app-gay">
+    <div class="subheader">
+        <app-subheader
+            [subheader]="{
+                title: 'O MUNDO É GAY SEUS GAYS',
+                subtitle: 'A MALA DO SEU WILSOM É GIGANTE!!!'
+            }"
+        ></app-subheader>
+    </div>
+    <div class="container">
+        <div class="name-bicha">
+            <span class="title" > Bem vindo ao roleta de pirocagem </span>
+            <span class="subtitle" > vamos detectar o tipo de viado é o seu amiguinho </span>
+        </div>
+        <div class="tipo-gay">
+            <span class="input-gay" >Nome do seu amigo gay</span>
+            <input [(ngModel)]="nomeDoBicha" class="input-gay" type="text" placeholder="Insira o nome do baitola">
+            <div class="btn-gay" >
+                <button (click)="getTypeOfGay()" >Tipo de baitola que é o seu amigo</button>
+            </div>
+        </div>
+        <div class="resultado">
+            <span style="color: white;">Parabéns o tipo de viadagem do seu amigo <span style="color: fuchsia; font-size: 18px; text-transform: uppercase;"> {{ nomeDoBicha }} </span> é</span>
+            <span style="color: aqua; font-size: 20px; text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;">{{ roletaDePirocagem }}</span>
+        </div>
+    </div>
+</div>

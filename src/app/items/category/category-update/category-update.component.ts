@@ -41,7 +41,9 @@ export class CategoryUpdateComponent {
     }
 
     ngOnInit(): void {
-        this.categoryForm.get('name')?.patchValue(this.category!.name);
+        this.categoryForm.patchValue({
+            name: this.category?.name
+        })
     }
 
     updateCategory() {
