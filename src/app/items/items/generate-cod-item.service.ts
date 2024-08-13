@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
-import { items } from '../../../../.history/src/app/items/items/iitems_20240724175246';
 import { ItemsService } from './items.service';
+import { IItems } from './iitems';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GenerateCodItemService {
 
-    items: items[] = [];
+    items: IItems[] = [];
 
   constructor( private itemsService: ItemsService ) { }
 
-  generateCodItem() {
+  generateCodItem(data: string) {
     const countItem = this.items.length;
-    return countItem;
+    const codItem = data + countItem;
+    return codItem;
   }
 
   getAllItems(){
     this.itemsService.getItems().subscribe((data: any) => {
-        this.items = data.data.content;
+      this.items = data.data.content;
     })
   }
 

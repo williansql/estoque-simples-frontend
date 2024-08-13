@@ -83,7 +83,7 @@ export class ItemsUpdateComponent {
         this.unitMeasureOption = this.itemsForm.get('unitMeasureEnum')?.valueChanges.pipe(
             debounceTime(300),
             startWith(''),
-            map(value => this._filter(value || '')),
+            map((value) => this._filter(value || '')),
         );
 
         this.categoryOption = this.itemsForm.get('category')?.valueChanges.pipe(
@@ -153,6 +153,14 @@ export class ItemsUpdateComponent {
         })
     }
 
+    invalid(field: string) {
+		return (
+			this.itemsForm.controls[field].invalid &&
+			(this.itemsForm.controls[field].dirty ||
+				this.itemsForm.controls[field].touched)
+		)
+	}
+
     private _filter(value: string): any[] {
         const filterValue = value.toLowerCase();
         return this.unitMeasure.filter(option => option.toLowerCase().includes(filterValue));
@@ -160,7 +168,7 @@ export class ItemsUpdateComponent {
 
     private _filterCategory(value: string): ICategory[] {
         const filterValue = value.toLowerCase();
-        return this.categories.filter(option => option.name.toLowerCase().includes(filterValue));
+        return this.categories.filter((option) => option.name.toLowerCase().includes(filterValue));
     }
 
 }

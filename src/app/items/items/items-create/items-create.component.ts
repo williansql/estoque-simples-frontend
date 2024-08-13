@@ -86,9 +86,8 @@ export class ItemsCreateComponent {
         );
 
         this.categoryOption = this.itemsForm.get('category')?.valueChanges.pipe(
-            debounceTime(300),
             startWith(''),
-            map(value => this._filterCategory(value || '')),
+            map((value) => this._filterCategory(value || '')),
         );
     }
 
@@ -141,7 +140,7 @@ export class ItemsCreateComponent {
 
     private _filterCategory(value: string): ICategory[] {
         const filterValue = value.toLowerCase();
-        return this.categories.filter(option => option.name.toLowerCase().includes(filterValue));
+        return this.categories.filter((option) => option.name.toLowerCase().includes(filterValue));
     }
 
 }
